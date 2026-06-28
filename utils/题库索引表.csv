@@ -332,3 +332,51 @@ $$
 “$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=0$”是“$\vec{a}=\vec{b}$且$\vec{a}\neq-\vec{b}$”的必要不充分条件.
 
 故选B."
+849,2026-L---解三角形，三角函数,解三角形\2026\2026-L---解三角形，三角函数.tex,2026,L,,,解三角形，三角函数,三角函数，追及问题，向量应用,否,选择题,2,是,0,,2026-06-28 08:50:06,2026-06-28 08:53:29,"老虎甲在A地发现野鹿乙在北偏东$15^{\circ}$方向上的B地，立刻以$10\sqrt{3}m/s$的速度进行追捕，与此同时，野鹿乙以$10\sqrt{2}m/s$的速度往北偏东$75^{\circ}$方向逃窜，假设甲、乙都是匀速直线运动，且$AB=500(\sqrt{6}-\sqrt{2})m$，则甲能够一次性捕获乙的最短时间为(\hspace{1cm})
+\begin{choices}
+\item$60s$
+\item$80s$
+\item$100s$
+\item$120s$
+\end{choices}",$C$,"设捕获时间为 $t$ 秒，相遇点为 $C$.
+
+则甲的路程 $AC = 10\sqrt{3}t$,乙的路程 $BC = 10\sqrt{2}t$.
+
+由方位角关系可得 $\angle ABC = 120^{\circ}$.
+
+在 $\triangle ABC$ 中，由正弦定理得
+$$
+\displaystyle \frac{AC}{\sin \angle ABC} = \displaystyle \frac{BC}{\sin \angle BAC}
+$$
+
+代入边长数据并化简得
+$$
+\displaystyle \frac{10\sqrt{3}t}{\displaystyle \frac{\sqrt{3}}{2}} = \displaystyle \frac{10\sqrt{2}t}{\sin \angle BAC}
+$$
+
+解得 $\sin \angle BAC = \displaystyle \frac{\sqrt{2}}{2}$.
+
+因为 $\angle ABC = 120^{\circ}$,所以 $\angle BAC = 45^{\circ}$.
+
+进而求得 $\angle ACB = 180^{\circ} - 120^{\circ} - 45^{\circ} = 15^{\circ}$.
+
+再次利用正弦定理建立方程
+$$
+\displaystyle \frac{AB}{\sin \angle ACB} = \displaystyle \frac{AC}{\sin \angle ABC}
+$$
+
+代入已知条件与三角函数值 $\sin 15^{\circ} = \displaystyle \frac{\sqrt{6}-\sqrt{2}}{4}$ 得
+$$
+\displaystyle \frac{500\left(\sqrt{6}-\sqrt{2}\right)}{\displaystyle \frac{\sqrt{6}-\sqrt{2}}{4}} = \displaystyle \frac{10\sqrt{3}t}{\displaystyle \frac{\sqrt{3}}{2}}
+$$
+
+计算等式两边得
+$$
+2000 = 20t
+$$
+
+解得 $t = 100$.
+
+故甲能够一次性捕获乙的最短时间为 $100s$.
+
+\boxed{C}"
