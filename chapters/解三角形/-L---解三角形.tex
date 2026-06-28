@@ -1,0 +1,49 @@
+% === Begin Label Data ===
+% ID: 847
+% 难度星级: 3
+% 标签: 解三角形，三角恒等变换，余弦定理
+% 备注: 
+% 组卷引用次数: 12
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{}{}{解三角形}
+已知 $\triangle ABC$ 的内角 $A, B, C$ 的对边分别为 $a, b, c$，且 $\sin(A+C)=8\sin^2\frac{B}{2}$.
+
+（1）求 $\cos B$;
+
+（2）若 $a+c=6$，$\triangle ABC$ 的面积为 2，求 $b$.
+\end{problem}
+
+\begin{answer}
+$\displaystyle\dfrac{15}{17}; 2$
+\end{answer}
+
+\begin{solutions}
+（1）在 $\triangle ABC$ 中，因为 $A+B+C=\pi$,所以 $\sin(A+C)=\sin(\pi-B)=\sin B$.
+
+原式化为 $\sin B=8\sin^2\frac{B}{2}$.
+
+利用二倍角公式得 $2\sin\frac{B}{2}\cos\frac{B}{2}=8\sin^2\frac{B}{2}$.
+
+因为 $B\in(0,\pi)$,所以 $\sin\frac{B}{2}\neq 0$,两边同除以 $2\sin\frac{B}{2}$ 得 $\cos\frac{B}{2}=4\sin\frac{B}{2}$.
+
+平方得 $\cos^2\frac{B}{2}=16\sin^2\frac{B}{2}$.
+
+结合 $\sin^2\frac{B}{2}+\cos^2\frac{B}{2}=1$,解得 $\sin^2\frac{B}{2}=\displaystyle\frac{1}{17}$.
+
+由降幂公式 $\cos B=1-2\sin^2\frac{B}{2}=1-\displaystyle\frac{2}{17}=\displaystyle\frac{15}{17}$.
+
+（2）因为 $\cos B=\displaystyle\frac{15}{17}$ 且 $B\in(0,\pi)$,所以 $\sin B=\sqrt{1-\cos^2 B}=\displaystyle\frac{8}{17}$.
+
+由面积公式 $S_{\triangle ABC}=\displaystyle\frac{1}{2}ac\sin B=2$,得 $ac=\displaystyle\frac{4}{\sin B}=\displaystyle\frac{17}{2}$.
+
+由余弦定理 $b^2=a^2+c^2-2ac\cos B=(a+c)^2-2ac(1+\cos B)$.
+
+代入 $a+c=6$,$ac=\displaystyle\frac{17}{2}$,$\cos B=\displaystyle\frac{15}{17}$ 得：
+
+$$
+b^2=6^2-2\times\displaystyle\frac{17}{2}\times\left(1+\displaystyle\frac{15}{17}\right)=36-32=4.
+$$
+
+所以 $b=\boxed{2}$.
+\end{solutions}

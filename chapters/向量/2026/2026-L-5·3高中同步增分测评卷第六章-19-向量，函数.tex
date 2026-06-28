@@ -1,0 +1,48 @@
+% === Begin Label Data ===
+% ID: 835
+% 难度星级: 5
+% 标签: 函数性质，向量，三角函数
+% 备注: 
+% 组卷引用次数: 30
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{5·3高中同步增分测评卷第六章}{19}{向量，函数}
+已知O为坐标原点, 对于函数 $f(x)=a \sin x+b \cos x$, 称向量 $\overrightarrow{O M}=(a, b)$ 为函数 $f(x)$ 的相伴特征向量, 同时称函数 $f(x)$ 为向量 $\overrightarrow{O M}$ 的相伴函数.
+
+（1） 设函数 $g(x)=\sin \left(x+\frac{5 \pi}{6}\right)-\sin \left(\frac{3 \pi}{2}-x\right)$, 试求 $g(x)$ 的相伴特征向量 $\overrightarrow{O M}$;
+
+（2） 记向量 $\overrightarrow{O N}=(1, \sqrt{3})$ 的相位函数为 $f(x)$, 或当 $f(x)=\frac{8}{5}$ 且 $x \in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$ 时, $\sin x$ 的取值;
+
+（3） 已知 $A(-2,3), B(2, b), \overrightarrow{D T}=(-\sqrt{3}, 1)$ 为函数 $h(x)=\min \left(x-\frac{\pi}{4}\right)$ 的相位特征向量, $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)$, 在 $y=\varphi(x)$ 的图象上是否存在一点 $P$, 使得 $\overrightarrow{A P} \perp \overrightarrow{B P}$ ?若存在, 求出点 $P$ 的坐标; 若不存在, 请说明理由.
+
+\end{problem}
+
+\begin{answer}
+（1）$\boxed{\left(-\dfrac{\sqrt{3}}{2}, \dfrac{3}{2}\right)}$;（2）$\boxed{\dfrac{4-3\sqrt{3}}{10}}$;（3）存在，$\boxed{P(0,2)}$（当 $b=6$ 时）
+\end{answer}
+
+\begin{solutions}
+（1）利用两角和与差的正弦公式展开化简。
+$$
+g(x)=\sin x\cos\frac{5\pi}{6}+\cos x\sin\frac{5\pi}{6}-(-\cos x)
+$$
+$$
+=-\frac{\sqrt{3}}{2}\sin x+\frac{3}{2}\cos x
+$$
+因为相伴特征向量为 $(a,b)$,所以 $\overrightarrow{OM}=\left(-\frac{\sqrt{3}}{2}, \frac{3}{2}\right)$ .
+
+（2）由定义得 $f(x)=\sin x+\sqrt{3}\cos x=2\sin\left(x+\frac{\pi}{3}\right)$ .
+因为 $f(x)=\frac{8}{5}$,所以 $\sin\left(x+\frac{\pi}{3}\right)=\frac{4}{5}$ .
+又 $x\in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$,故 $x+\frac{\pi}{3}\in\left(-\frac{\pi}{6}, \frac{\pi}{2}\right)$ .
+所以 $\cos\left(x+\frac{\pi}{3}\right)=\sqrt{1-\left(\frac{4}{5}\right)^2}=\frac{3}{5}$ .
+因此 $\sin x=\sin\left[\left(x+\frac{\pi}{3}\right)-\frac{\pi}{3}\right]=\frac{4}{5}\times\frac{1}{2}-\frac{3}{5}\times\frac{\sqrt{3}}{2}=\frac{4-3\sqrt{3}}{10}$ .
+
+（3）由 $\overrightarrow{DT}=(-\sqrt{3},1)$ 知 $h(x)=-\sqrt{3}\sin x+\cos x=2\cos\left(x+\frac{\pi}{3}\right)$ .
+则 $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)=2\cos\left(\frac{x}{2}-\frac{\pi}{3}+\frac{\pi}{3}\right)=2\cos\frac{x}{2}$ .
+设 $P(x_0,y_0)$ 在图象上，则 $y_0=2\cos\frac{x_0}{2}$ .
+由 $\overrightarrow{AP}\perp\overrightarrow{BP}$ 得 $(x_0+2)(x_0-2)+(y_0-3)(y_0-b)=0$ .
+取 $x_0=0$,则 $y_0=2$,代入得 $-4+(-1)(2-b)=0$,解得 $b=6$ .
+当 $b=6$ 时，存在点 $P(0,2)$ 满足条件 .
+若 $b\neq 6$,联立方程组分析可得无实数解 .
+综上，当 $b=6$ 时存在点 $P(0,2)$;否则不存在 .
+\end{solutions}

@@ -1,0 +1,1276 @@
+\documentclass[12pt,UTF-8,a4paper]{ctexart}
+
+%----------------------------------------------------------------------------------
+%  基本配置与宏包加载 (Basic Configuration & Packages)
+%----------------------------------------------------------------------------------
+% 保留你原始的导言设置与注释，改为类文件形式
+\PassOptionsToPackage{table,xcdraw}{xcolor}
+
+%----------------------------------------------------------------------------------
+%  目录设置 (Table of Contents)
+%----------------------------------------------------------------------------------
+% 中文支持
+
+\usepackage{tocloft} 
+
+\renewcommand\cftsecdotsep{0.5}%虚线间隔
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftdotsep}{1.5}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\setlength{\cftbeforesecskip}{18pt}%章节间隔,节前18磅
+\setlength{\cftbeforesubsecskip}{18pt}%章节间隔,小节节前18磅
+\renewcommand{\cftsecfont}{\kaishu\zihao{-4}}
+\renewcommand{\cftsubsecfont}{\kaishu\zihao{-4}}
+%\renewcommand\cftsecpagefont{\mdseries}
+\setlength\cftbeforetoctitleskip{-20pt}				%
+\setlength\cftaftertoctitleskip{18pt}						
+\setlength{\cftsubsecindent}{0pt}					%设置subsubsection不缩进
+\setlength{\cftsecindent}{0pt}						   %设置section部分不缩进
+
+\renewcommand{\cftsecpagefont }{} 	%如何设置目录sec的page不加粗
+
+\renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{xeCJK}
+% 定义一个自定义中文字体命令，假设字体文件是 "SimSun.ttc"
+\newCJKfontfamily\mysongti{....方正小标宋简.TTF} 
+\usepackage{titletoc}
+%\setcounter{tocdepth}{1} % 只显示到节（section），不显示小节（subsection）
+
+
+% 设置目录中节标题的格式
+\titlecontents{section}
+  [2.3em]                   % 左边距
+  {\color{structure}\bfseries\large}  % 格式：structure颜色，粗体，大字号
+  {\contentslabel{2.3em}}  % 编号格式
+  {\hspace*{-2.3em}}       % 无编号时的处理
+  {\titlerule*[1pc]{.}\contentspage} % 引导线和页码
+
+% 设置目录中小节标题的格式
+\titlecontents{subsection}
+  [4.6em]                   % 左边距
+  {\color{structure}}       % 格式：structure颜色
+  {\contentslabel{3.2em}}  % 编号格式
+  {\hspace*{-3.2em}}       % 无编号时的处理
+  {\titlerule*[1pc]{.}\contentspage} % 引导线和页码
+
+% 自定义章节标题格式和间距
+\usepackage{afterpage}
+
+\usepackage{etoolbox}
+
+% 在目录开始时设置无页眉页脚样式
+%\pretocmd{\tableofcontents}{\pagestyle{partpage}}{}{}
+% 在目录结束后恢复正常样式
+\apptocmd{\tableofcontents}{\pagestyle{fancy}}{}{}
+
+%----------------------------------------------------------------------------------
+%  通用宏包与设置 (General Packages & Settings)
+%----------------------------------------------------------------------------------
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+  breaklinks,
+  unicode,
+  linktoc=all,
+  bookmarksnumbered=true,    % 显示章节编号
+  bookmarksopen=true,        % 自动展开书签
+  bookmarksopenlevel=2,      % 展开到节级别
+  pdfkeywords={MathCyclusBook},
+  colorlinks=true,
+  linkcolor=structure,
+  citecolor=green,
+  urlcolor=red,
+  pdfstartview=FitH,
+  pdfborder={0 0 0}
+}
+
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{lastpage} % 用于获取总页数
+
+\usepackage{etex}
+\usepackage{tikz,times}
+\usepackage{pgfplots}
+\usepackage{tasks}
+
+\usepackage{wrapfig}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+%----------------------------------------------------------------------------------
+%  字体与绘图设置 (Fonts & Graphics)
+%----------------------------------------------------------------------------------
+\usepackage{fontspec}
+\setmainfont{Times New Roman}[ItalicFont=Times New Roman Italic]
+
+\usepgfplotslibrary{polar,colormaps,colorbrewer}
+\pgfplotsset{compat=1.16}
+\usetikzlibrary{calc,decorations.markings}
+\usepackage{amssymb,amsmath,pgfornament,shapepar}
+\usetikzlibrary{calc,positioning,intersections}
+\usetikzlibrary{arrows}
+\newsavebox{\bbox}
+\usetikzlibrary{shapes.geometric,through,decorations.pathmorphing, arrows.meta,quotes,mindmap,shapes.symbols,shapes.arrows,automata,angles,3d,trees,shadows,automata,arrows,
+shapes.callouts,decorations.pathreplacing}
+
+\usepackage[x11names]{xcolor}
+\usepackage{pdfpages}
+
+
+
+%----------------------------------------------------------------------------------
+%  颜色定义 (Color Definitions)
+%----------------------------------------------------------------------------------
+\definecolor{structure}{RGB}{60,113,183}
+\definecolor{STRUCTURE}{RGB}{60,113,183}  % 添加大写版本
+\definecolor{main}{RGB}{0,166,82}%
+\definecolor{second}{RGB}{255,134,24}%
+\definecolor{third}{RGB}{0,174,247}%
+\definecolor{fourth}{RGB}{244,105,102}%
+\definecolor{lanjiacu}{RGB}{0,160,152}%
+\definecolor{tianlanse}{RGB}{31,186,190}%
+
+% 基础颜色定义
+\definecolor{baise}{RGB}{255,255,255}%        % 白色 (white)
+\definecolor{yamase}{RGB}{250,240,230}%       % 亚麻色 (linen)
+\definecolor{heise}{RGB}{0,0,0}%              % 黑色 (black)
+\definecolor{huise}{RGB}{128,128,128}%        % 灰色 (grey)
+\definecolor{qianhuise}{RGB}{211,211,211}%    % 浅灰色 (lightgrey)
+\definecolor{shenhuise}{RGB}{169,169,169}%    % 深灰色 (darkgrey)
+
+% 红色系颜色定义
+\definecolor{hongse}{RGB}{255,0,0}%           % 红色 (red)
+\definecolor{shenhongse}{RGB}{220,20,60}%     % 深红色 (crimson)
+\definecolor{anhongse}{RGB}{139,0,0}%         % 暗红色 (darkred)
+\definecolor{hese}{RGB}{165,42,42}%           % 褐色 (brown)
+\definecolor{hehongse}{RGB}{128,0,0}%         % 褐红色 (maroon)
+\definecolor{guihongse}{RGB}{250,128,114}%    % 鲑红色 (salmon)
+\definecolor{fense}{RGB}{255,192,203}%        % 粉色 (pink)
+\definecolor{shanhuse}{RGB}{255,127,80}%      % 珊瑚色 (coral)
+\definecolor{chenghongse}{RGB}{255,69,0}%     % 橙红色 (orangered)
+\definecolor{chengse}{RGB}{255,165,0}%        % 橙色 (orange)
+
+% 蓝色系颜色定义
+\definecolor{lanse}{RGB}{0,0,225}%            % 蓝色 (blue)
+\definecolor{rouhelanse}{RGB}{0,130,180}%            % 柔和蓝色 (blue)
+\definecolor{shichejuhelanse}{RGB}{100,149,237}%            % 矢车菊色 (blue)
+\definecolor{shichejuhelanse}{RGB}{65,105,225}%            % 皇家蓝色 (blue)
+\definecolor{tianlanse}{RGB}{135,206,235}%    % 天蓝色 (skyblue)
+\definecolor{hailanse}{RGB}{127,255,212}%     % 海蓝色 (aquamarine)
+\definecolor{shenlanse}{RGB}{0,0,128}%        % 深蓝色 (navy)
+
+% 绿色系颜色定义
+\definecolor{lvse}{RGB}{0,128,0}%             % 绿色 (green)
+\definecolor{shenlvse}{RGB}{0,100,0}%         % 深绿色 (darkgreen)
+\definecolor{hailvse}{RGB}{46,139,87}%        % 海绿色 (seagreen)
+\definecolor{chunlvse}{RGB}{0,255,127}%       % 春绿色 (springgreen)
+\definecolor{senlinlvse}{RGB}{34,139,34}%      % 森林绿色 (forestgreen)
+\definecolor{lvhuangse}{RGB}{173,255,47}%     % 绿黄色 (greenyellow)
+\definecolor{huanglvse}{RGB}{154,205,50}%     % 黄绿色 (yellowgreen)
+
+% 黄色系颜色定义
+\definecolor{huangse}{RGB}{255,255,0}%        % 黄色 (yellow)
+\definecolor{kaqise}{RGB}{240,230,140}%       % 卡其色 (khaki)
+\definecolor{jinse}{RGB}{255,215,0}%          % 金色 (gold)
+\definecolor{mihuangse}{RGB}{245,245,220}%    % 米黄色 (beige)
+\definecolor{ganlanise}{RGB}{128,128,0}%      % 橄榄色 (olive)
+\definecolor{danhuangse}{RGB}{255,208,181}%   % 橙淡黄色
+
+% 紫色系颜色定义
+\definecolor{zise}{RGB}{128,0,128}%           % 紫色 (purple)
+\definecolor{dianqingse}{RGB}{75,0,130}%      % 靛青色 (indigo)
+\definecolor{zihongse}{RGB}{221,160,221}%     % 紫红色 (plum)
+\definecolor{ziluolanse}{RGB}{238,130,238}%   % 紫罗兰色 (violet)
+\definecolor{lanziose}{RGB}{138,43,226}%      % 蓝紫色 (blueviolet)
+\definecolor{yanghongse}{RGB}{255,0,255}%     % 洋红色 (magenta)
+
+% 青色系颜色定义
+\definecolor{qingse}{RGB}{0,255,255}%         % 青色 (cyan)
+\definecolor{qinglvse}{RGB}{64,224,208}%      % 青绿色 (turquoise)
+\definecolor{langlvse}{RGB}{0,128,128}%       % 蓝绿色 (teal)
+\definecolor{zonghese}{RGB}{210,180,140}%     % 棕褐色 (tan)
+
+%----------------------------------------------------------------------------------
+%  自定义文本命令 (Custom Text Commands)
+%----------------------------------------------------------------------------------
+\newcommand{\bd}{\boldsymbol}
+
+% 自定义加粗彩色文字命令
+\newcommand{\jc}[1]{\textbf{\textcolor{lanjiacu}{\,#1\,}}}
+
+\newcommand{\bj}[1]{\textbf{\textcolor{structure}{\,#1\,}}}
+
+
+
+\usepackage{enumitem}
+\usepackage{fontawesome5} % 如果需要图标
+
+
+%----------------------------------------------------------------------------------
+%  章节标题设置 (Section Titles)
+%----------------------------------------------------------------------------------
+% 添加到导言区
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+% 章节标题集中设置
+\titleformat{\section}
+{\normalfont\large\bfseries\color{structure}}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\normalsize\bfseries\color{structure}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\color{structure}}{\thesubsubsection}{0.5em}{}
+
+% 调整章节标题间距
+\titlespacing{\section}{0pt}{10pt}{10pt} % 减少章标题上方的空白及下方的间距
+
+%----------------------------------------------------------------------------------
+%  页面布局 (Page Layout)
+%----------------------------------------------------------------------------------
+% 页面设置
+\geometry{left=2.0cm,right=2.0cm,top=2.0cm,bottom=2.0cm,headheight=15pt}
+
+\setlength{\parskip}{1em} 
+
+% 抑制排版警告
+\raggedbottom
+\hbadness=10000 
+\vbadness=10000
+\hfuzz=50pt 
+\vfuzz=50pt 
+
+
+%----------------------------------------------------------------------------------
+%  页眉页脚设置 (Headers & Footers)
+%----------------------------------------------------------------------------------
+% 页眉页脚设置
+\pagestyle{fancy}
+\fancyhf{} % 清除所有页眉页脚
+
+\newcommand{\sectiontitlecontent}{}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\thesection\quad #1}{}%
+  \gdef\sectiontitlecontent{#1}%
+}
+\renewcommand{\subsectionmark}[1]{%
+  \markboth{\thesubsection\quad #1}{}%
+}
+
+% 定义文档标题变量
+\newcommand{\mytitle}{}
+
+\fancyhead[C]{\color{structure}{\bfseries \mytitle}} % 页眉中间：标题名
+\fancyfoot{}
+\fancyfoot[L]{%
+    \includegraphics[height=0.5cm]{logo.png}\hspace{0.1cm}%
+    \textcolor{black}{\jc{\bfseries\mysongti 赵国辉}}%
+} % 左下角：赵国辉
+\fancyfoot[R]{\color{guihongse}{\bfseries 第 \thepage 页，共 \hypersetup{linkcolor=guihongse}\pageref{LastPage} 页}} % 右下角：页码
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+
+
+% 章节首页也使用相同的页眉页脚样式
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead{} % 页眉清空，第一页不显示页眉
+  \renewcommand{\headrulewidth}{0pt} % 第一页去页眉线
+\fancyfoot[L]{%
+    \includegraphics[height=0.5cm]{logo.png}\hspace{0.1cm}%
+    \textcolor{black}{\jc{\bfseries\mysongti 赵国辉}}%
+}
+  \fancyfoot[R]{\color{guihongse}{\bfseries 第 \thepage 页，共 \hypersetup{linkcolor=guihongse}\pageref{LastPage} 页}}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\fancypagestyle{cp}{
+  \fancyhf{}
+  \fancyhead{} % 页眉清空
+  \renewcommand{\headrulewidth}{0pt} % 去页眉线
+  \fancyhead[C]{\color{structure}{\bfseries \mytitle}}
+  \fancyfoot[L]{\jc{\bfseries 数圈MathCyclus}}
+  \fancyfoot[R]{\color{guihongse}{\bfseries 第 \thepage 页，共 \hypersetup{linkcolor=guihongse}\pageref{LastPage} 页}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+% 为页面定义特殊的页面样式（无页眉页脚）
+\fancypagestyle{nohf}{
+  \fancyhf{}
+  \fancyhead{} % 页眉清空
+  \fancyfoot{} % 页脚清空
+  \renewcommand{\headrulewidth}{0pt}  % 无页眉线
+  \renewcommand{\footrulewidth}{0pt}  % 无页脚线
+}
+
+
+%----------------------------------------------------------------------------------
+%  定理环境与图表设置 (Theorems & Figures)
+%----------------------------------------------------------------------------------
+% 在main.tex的导言区添加
+\usepackage{caption}
+\numberwithin{figure}{section}
+\renewcommand{\figurename}{\bfseries \color{structure} 图}
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+% 定理环境设置 - 分组计数器
+
+
+\newtheoremstyle{mystyle}  % 样式名称
+  {4pt}                    % 上方间距
+  {4pt}                    % 下方间距
+  {\upshape}               % 正文字体（\upshape为正体）
+  {}                       % 缩进
+  {\bfseries}              % 标题字体
+  {:}                      % 标题后标点
+  {.7em}                   % 标题后间距
+  {}                       % 标题格式
+
+\newtheoremstyle{mystylekaishu}
+  {4pt}
+  {4pt}
+  {\kaishu}
+  {}
+  {\bfseries}
+  {:}
+  {.7em}
+  {}
+
+\theoremstyle{mystyle}
+
+\newtheorem{definition}{\textcolor{main}{\bfseries 定义}}[section]     % 定义类：定义、注
+\newtheorem{example}{\textcolor{main}{\bfseries 例}}[section]          % 例题类：例
+
+%\newtheorem*{solve}{\textcolor{main}{\bfseries 求解}}
+\newenvironment{solve}[1][【求解】]{
+\par\noindent{\textcolor{rouhelanse}{\bfseries #1}}\,
+}{
+    \par\vspace{\baselineskip}
+}
+
+\newenvironment{solution}[1][【证明】]{
+\par\noindent{\textcolor{rouhelanse}{\bfseries #1}}\,
+}{
+    \par\vspace{\baselineskip}
+}
+
+\usepackage{xparse}
+
+% 辅助命令：让 \phantom 支持段落换行 (Phantom Patch)
+\newtoks\solutionpatchtoks
+\def\longpatch#1{%
+  \let\myoldmac#1%
+  \long\def#1##1{\solutionpatchtoks={##1}\myoldmac{\the\solutionpatchtoks}}%
+}
+\longpatch{\phantom}
+
+
+
+\newtheorem{theorem}{\textcolor{second}{\bfseries 定理}}[section]        % 定理类：定理、引理、命题、推论
+\newtheorem{lemma}{\textcolor{second}{\bfseries 引理}}[section]
+\newtheorem{corollary}{\textcolor{second}{\bfseries 推论}}[section]
+\newtheorem{axiom}{\textcolor{second}{\bfseries 公理}}[section]
+\newtheorem{postulate}{\textcolor{second}{\bfseries 假设}}[section]
+\newenvironment{remark}[1][注：]{
+\vspace{-0.9\baselineskip}\par\noindent
+\begin{tcolorbox}[colback=cyan!08,colframe=cyan!10,boxrule=0pt,left=0pt,right=0pt,top=0pt,bottom=0pt,enhanced,breakable]
+{\textcolor{second}{\bfseries #1}}\,
+\kaishu\setlength{\parindent}{2em}\setlength{\parskip}{0.5\baselineskip}
+}{
+\end{tcolorbox}
+    \par\vspace{\baselineskip}
+}
+%\newtheorem*{remark}{\textcolor{second}{\bfseries 注}}
+\newenvironment{analysis}[1][【分析】]{
+\par\noindent{\textcolor{chenghongse}{\bfseries #1}}\,
+\kaishu
+}{
+    \par\vspace{0.1\baselineskip}
+}
+%\newtheorem*{analysis}{\textcolor{second}{\bfseries 分析}}
+
+\theoremstyle{mystylekaishu}
+\newtheorem{proposition}{\textcolor{third}{\bfseries 命题}}[section]
+\newtheorem{property}{\textcolor{third}{\bfseries 性质}}[section]
+\theoremstyle{mystyle}
+\newtheorem{conclusion}{\textcolor{third}{\bfseries 结论}}[section]
+
+\newtheorem{exercise}{\textcolor{fourth}{\bfseries 练习}}[section]
+
+% 重新定义计数器显示格式，让编号也显示颜色
+\renewcommand{\thedefinition}{\textcolor{main}{\thesection.\arabic{definition}}}
+\renewcommand{\theexample}{\textcolor{main}{\thesection.\arabic{example}}}
+%\renewcommand{\thesolve}{\textcolor{main}{\thesection.\arabic{solve}}}
+%\renewcommand{\thesolution}{\textcolor{main}{\thesection.\arabic{solution}}}
+
+\renewcommand{\thetheorem}{\textcolor{second}{\thesection.\arabic{theorem}}}
+\renewcommand{\thelemma}{\textcolor{second}{\thesection.\arabic{lemma}}}
+\renewcommand{\thecorollary}{\textcolor{second}{\thesection.\arabic{corollary}}}
+\renewcommand{\theaxiom}{\textcolor{second}{\thesection.\arabic{axiom}}}
+\renewcommand{\thepostulate}{\textcolor{second}{\thesection.\arabic{postulate}}}
+%\renewcommand{\theremark}{\textcolor{remark}{\thesection.\arabic{remark}}}
+%\renewcommand{\theanalysis}{\textcolor{chenghongse}{\thesection.\arabic{analysis}}}
+
+\renewcommand{\theproposition}{\textcolor{third}{\thesection.\arabic{proposition}}}
+\renewcommand{\theproperty}{\textcolor{third}{\thesection.\arabic{property}}}
+\renewcommand{\theconclusion}{\textcolor{third}{\thesection.\arabic{conclusion}}}
+
+\renewcommand{\theexercise}{\textcolor{fourth}{\thesection.\arabic{exercise}}}
+
+%----------------------------------------------------------------------------------
+%  引用与标签系统 (References & Labels)
+%----------------------------------------------------------------------------------
+% 重新定义figref命令，确保与caption格式一致
+%\newcommand{\figref}[1]{\textcolor{structure}{图~\ref{#1}}}
+
+\newcounter{myfigure}[section]  % 按section重置
+\renewcommand{\themyfigure}{\arabic{section}-\arabic{myfigure}}
+
+% 修改您现有的figref命令 - 修复递归错误
+\newcommand{\figref}[1]{%
+  \textcolor{structure}{\bfseries 图~\ref{fig:#1}}%  % 使用\ref而不是\figref
+}
+
+% 专属图片标签命令
+\newcommand{\figlabel}[1]{%
+  \refstepcounter{myfigure}%
+  \label{fig:#1}%
+}
+
+
+\newcounter{mysection}
+\renewcommand{\themysection}{\arabic{section}}
+
+% 修改您现有的secref命令 - 修复递归错误
+\newcommand{\secref}[1]{%
+  \textcolor{structure}{\bfseries 第\ref{section:#1}节}%  
+}
+
+\newcommand{\seclabel}[1]{%
+  \refstepcounter{mysection}%
+  \label{section:#1}%
+}
+
+\newcounter{mysubsection}[section]  % 按section重置
+\renewcommand{\themysubsection}{\arabic{section}.\arabic{subsection}}
+
+% 修改您现有的secref命令 - 修复递归错误
+\newcommand{\subsecref}[1]{%
+  \textcolor{structure}{\bfseries 第\ref{subsection:#1}小节}%  
+}
+
+\newcommand{\subseclabel}[1]{%
+  \refstepcounter{mysubsection}%
+  \label{subsection:#1}%
+}
+
+
+\newcommand{\tabref}[1]{\textcolor{structure}{\bfseries 表~\ref{#1}}}
+
+\newcommand{\definitionref}[1]{\textcolor{main}{\bfseries 定义~\ref{#1}}}
+\newcommand{\exampleref}[1]{\textcolor{main}{\bfseries 例~\ref{#1}}}
+
+\newcommand{\theoremref}[1]{\textcolor{second}{\bfseries 定理~\ref{#1}}}
+\newcommand{\lemmaref}[1]{\textcolor{second}{\bfseries 引理~\ref{#1}}}
+\newcommand{\corollaryref}[1]{\textcolor{second}{\bfseries 推论~\ref{#1}}}
+\newcommand{\axiomref}[1]{\textcolor{second}{\bfseries 公理~\ref{#1}}}
+\newcommand{\postulateref}[1]{\textcolor{second}{\bfseries 假设~\ref{#1}}}
+\newcommand{\remarkref}[1]{\textcolor{second}{\bfseries 注~\ref{#1}}}
+
+\newcommand{\propositionref}[1]{\textcolor{third}{\bfseries 命题~\ref{#1}}}
+\newcommand{\propertyref}[1]{\textcolor{third}{\bfseries 性质~\ref{#1}}}
+\newcommand{\conclusionref}[1]{\textcolor{third}{\bfseries 结论~\ref{#1}}}
+
+\newcommand{\exerciseref}[1]{\textcolor{fourth}{\bfseries 练习~\ref{#1}}}
+
+% 这样图片编号就会显示为：图 6.1-3
+
+
+%----------------------------------------------------------------------------------
+%  自定义知识框 (Custom Knowledge Boxes)
+%----------------------------------------------------------------------------------
+% 自定义环境
+\newenvironment{lianxiang}{
+  \begin{tcolorbox}[colback=blue!5,colframe=blue!35,title=知识联想,fonttitle=\bfseries\color{white}]
+}{\end{tcolorbox}}
+
+\newenvironment{insight}{
+  \begin{tcolorbox}[colback=green!5,colframe=green!35,title=深入理解,fonttitle=\bfseries\color{black}]
+}{\end{tcolorbox}}
+
+\newenvironment{history}{
+  \begin{tcolorbox}[colback=yellow!5,colframe=yellow!35,title=历史背景,fonttitle=\bfseries\color{black}]
+}{\end{tcolorbox}}
+
+\newenvironment{application}{
+  \begin{tcolorbox}[colback=purple!5,colframe=purple!35,title=应用实例,fonttitle=\bfseries\color{black}]
+}{\end{tcolorbox}}
+
+\newenvironment{exercise1}{
+  \begin{tcolorbox}[colback=red!5,colframe=red!35,title=思考练习,fonttitle=\bfseries\color{black}]
+}{\end{tcolorbox}}
+
+\newenvironment{summary}{
+  \begin{tcolorbox}[colback=gray!5,colframe=gray!35,title=小结,fonttitle=\bfseries\color{black}]
+}{\end{tcolorbox}}
+
+
+%----------------------------------------------------------------------------------
+%  选择题环境 (Multiple Choice Environment)
+\usepackage{tasks}
+\settasks{label=\Alph*., label-width=1.2em}
+% 若 max_dim > 0.47\linewidth 单列布局
+% 若 0.31\linewidth < max_dim < 0.47\linewidth 双列布局
+% 若 max_dim < 0.31\linewidth 四列布局
+\ExplSyntaxOn
+\clist_new:N \g_xixi_choice_clist
+\dim_new:N \g_xixi_choice_maxdim
+\int_new:N \l_xixi_choice_fixed_cols_int
+\NewDocumentEnvironment{choices}{ O{0} }{
+    \group_begin:
+    \clist_gclear_new:N \g_xixi_choice_clist
+    \dim_gzero_new:N \g_xixi_choice_maxdim
+    \int_set:Nn \l_xixi_choice_fixed_cols_int { #1 }
+}{
+    \int_compare:nTF { \l_xixi_choice_fixed_cols_int > 0 }
+    {
+        \int_set:Nn \l_tmpa_int { \l_xixi_choice_fixed_cols_int }
+    }
+    {
+        \dim_compare:nTF {\g_xixi_choice_maxdim > .47\textwidth}
+        {
+            \int_set:Nn \l_tmpa_int {1}
+        }{
+            \dim_compare:nTF {\g_xixi_choice_maxdim > .23\linewidth}
+            {
+                \int_set:Nn \l_tmpa_int {2}
+            }
+            {
+                \int_set:Nn \l_tmpa_int {4}
+            }
+        }
+    }
+    % \int_use:N \l_tmpa_int \par
+    % https://tex.stackexchange.com/a/721101/322482 % 感谢egreg老师
+    \tl_clear:N \l_tmpa_tl
+    \clist_map_inline:Nn \g_xixi_choice_clist {  \tl_put_right:Nn \l_tmpa_tl { \task ##1 } }
+    \xixi_task_make:nV { \l_tmpa_int } { \l_tmpa_tl }
+    % \textcolor{red}{The~largest~width~is~\dim_use:N \g_xixi_choice_maxdim!~with~\the\textwidth}\par
+    \group_end:
+}
+\cs_new_protected:Nn \xixi_task_make:nn
+ {
+  \begin{tasks}(#1) #2 \end{tasks}
+ }
+\cs_generate_variant:Nn \xixi_task_make:nn {nV}
+\NewDocumentCommand{\choice}{ m }{
+    \clist_put_right:Nn \g_xixi_choice_clist { { { { #1 } } } }
+    \hbox_set:Nn \l_tmpa_box { { { #1 } } }
+    \dim_set:Nn \l_tmpa_dim { \box_wd:N \l_tmpa_box }
+    % The~{#1}'s~width~is~\the\tmpitemwidth.\par
+    \dim_gset:Nn \g_xixi_choice_maxdim {\dim_max:nn { \g_xixi_choice_maxdim}{\l_tmpa_dim}}
+}
+\ExplSyntaxOff
+
+
+
+%----------------------------------------------------------------------------------
+%  自定义数学命令 (Custom Math Commands)
+%----------------------------------------------------------------------------------
+% 定义数学指令
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand{\gt}{>}
+\newcommand{\lt}{<}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+\providecommand{\dps}{\displaystyle}
+\renewcommand\parallel{\mathrel{/\mskip-2.5mu/}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+
+%----------------------------------------------------------------------------------
+%  习题与装饰框 (Exercises & Decorative Frames)
+%----------------------------------------------------------------------------------
+% tcolorbox 与题型盒
+\usepackage{tcolorbox} % box制作基本宏包
+\usepackage{varwidth} % box宽度设置需要
+\tcbuselibrary{breakable} %box内自动折行
+\tcbuselibrary{skins} % 填充等
+
+\newcounter{xiti}
+\numberwithin{xiti}{section}
+
+\NewTColorBox{theobox}{o m +o}{
+enhanced,colframe=huise!5!white,interior empty,
+coltitle=white,fonttitle=\bfseries,colbacktitle=huise,
+extras broken={frame empty,interior empty},
+borderline={0.5mm}{0mm}{huise},
+rounded corners,
+breakable=true,
+top=4mm,
+before skip=3.5mm,
+attach boxed title to top left={yshift=-3mm,xshift=5mm},
+boxed title style={boxrule=0pt,sharp corners=all},varwidth boxed title,
+IfNoValueTF={#1}{title=#2~\thexiti.}{title=#2~\thexiti:~#1},
+IfNoValueTF={#3}{}{#3}
+}
+
+\NewDocumentEnvironment{xiti}{o m +o}{
+\refstepcounter{xiti}\begin{theobox}[#1]{#2}[#3]}{\end{theobox}}
+\NewDocumentEnvironment{xitikuang}{o +d""}{
+\begin{xiti}[#1]{习题}[#2]
+}{\end{xiti}\vspace{1em}}
+
+% 自定义提示框环境 (基于用户图片)
+\newtcolorbox{lanbox}{
+  enhanced,
+  boxrule=0.5pt,
+  colframe=cyan!50!blue!80, % 外框：更深一点的蓝色 (加重 blue 的比例)
+  colback=cyan!5!white,     % 内底：更浅一点的蓝色 (混合大量白色)
+  arc=3mm,                  % 圆角大小
+  boxsep=2mm,               % 内容与边框的间距
+  left=2mm, right=2mm, top=2mm, bottom=2mm,
+  drop fuzzy shadow         % 可选：添加轻微阴影效果，如果不喜欢可以去掉
+}
+
+
+% 导言区边框
+\usepackage{mdframed}
+\usetikzlibrary{decorations.pathmorphing}
+\mdfdefinestyle{wavy}{
+  linecolor=cyan,
+  linewidth=1pt,
+  backgroundcolor=cyan!5,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  tikzsetting={draw=cyan,line width=1pt,decoration={snake,amplitude=1.5mm,segment length=4mm},decorate}
+}
+\newmdenv[style=wavy]{waveframe}
+
+% 自动增加行内间距
+\newif\ifsmartdfrac
+\smartdfractrue
+% \smartdfracfalse
+
+\ifsmartdfrac
+\newlength{\myheight}
+\newlength{\mydepth}
+\let\olddfrac\dfrac
+\RenewDocumentCommand\dfrac{ m m }{%
+  \settoheight{\myheight}{$\olddfrac{#1}{#2}$}%
+  \settodepth{\mydepth}{$\olddfrac{#1}{#2}$}%
+  \raisebox{0pt}[1.1\myheight][1.1\mydepth]{$\olddfrac{#1}{#2}$}%
+}\else\fi
+
+
+
+
+
+% 模式开关：默认按年份（Mode A），开启后按板块（Mode B）
+\newif\ifByTopic
+\ByTopicfalse 
+\newcommand{\CurrentTopic}{}
+
+% 辅助命令：判断字符串是否相等
+\ExplSyntaxOn
+\cs_new:Npn \IfStringEqualTF #1 #2 {
+  \str_if_eq:eeTF { #1 } { #2 }
+}
+\ExplSyntaxOff
+
+% ==================================================
+% 实现 \paren 指令，用于选择题题干末尾对齐括号
+% ==================================================
+\newcommand{\paren}[1][]{%
+  \unskip\nobreak\hfill\allowbreak
+  \hbox to 2em{\hfil(\quad#1\quad)\hfil}%
+}
+
+% 定义 problem 环境
+% 参数：{年份}{类型}{试卷名}{题号}{板块}
+\NewDocumentEnvironment{problem}{ m m m m m +b }{
+  \ifByTopic
+    % Mode B: 仅当当前板块匹配时显示（用于按板块重组文档）
+    \IfStringEqualTF{#5}{\CurrentTopic}{
+      \par\noindent
+      \textcolor{lanse}{\textbf{【#1~~#3，#4】}}
+      #6
+    }{}
+  \else
+    % Mode A: 正常显示所有题目（用于按年份/试卷文档）
+    \par\noindent
+    \textcolor{structure}{\textbf{【#1~~#3，#4】}}
+    #6
+  \fi
+}{}
+
+\usepackage{multirow} 
+\usepackage{amsmath} 
+\renewcommand{\thefootnote}{[\arabic{footnote}]} 
+
+
+% ================================================== 
+% 答案显示模式设置 
+% 0: 正常显示答案 (Show Answer) 
+% 1: 隐藏答案但保留篇幅空白 (Phantom Space) 
+% 2: 隐藏答案并保留固定空白 (Fixed Space) 
+% 3: 完全隐藏答案不留白 (No Space) 
+\def\solutionmode{2} %在此处修改数字即可切换模式 
+
+\NewDocumentEnvironment{solutions}{ O{【解答】} O{} O{} +b }{% 
+  \ifcase\solutionmode\relax 
+    % Mode 0: 正常显示 
+    \par\noindent{\textcolor{main}{\bfseries \if\relax\detokenize{#1}\relax 【解答】\else #1\fi}}\,% 
+    #4% 
+    \par\vspace{\baselineskip}% 
+  \or 
+    % Mode 1: 留白篇幅长度 
+    \par\noindent{\textcolor{main}{\bfseries \if\relax\detokenize{#1}\relax 【解答】\else #1\fi}}\,% 
+    \phantom{% 
+      \parbox[t]{\linewidth}{% 
+         \renewenvironment{figure}[1][]{\center\captionsetup{type=figure}}{\endcenter}% 
+         \renewenvironment{table}[1][]{\center\captionsetup{type=table}}{\endcenter}% 
+         #4% 
+      }% 
+    }% 
+    \par\vspace{\baselineskip}% 
+  \or 
+    % Mode 2: 留白固定长度 (默认 5cm，可按需调整) 
+    \par\noindent{\textcolor{main}{\bfseries \if\relax\detokenize{#1}\relax 【解答】\else #1\fi}}\,% 
+    %\vspace*{5cm}% 
+    \newpage 
+    \quad 
+    \newpage 
+    \par\vspace{\baselineskip}% 
+  \or 
+    % Mode 3: 不留白 (什么都不显示) 
+    % Do nothing 
+  \fi 
+}{}
+
+\NewDocumentEnvironment{answer}{ O{【答案】} O{} O{} +b }{%
+  \ifcase\solutionmode\relax
+    % Mode 0: 正常显示
+    \par\noindent{\textcolor{main}{\bfseries \if\relax\detokenize{#1}\relax 【答案】\else #1\fi}}\,%
+    #4%
+    \par\vspace{\baselineskip}%
+  \or
+    % Mode 1: 不留白 (什么都不显示)
+  \fi
+}{}
+
+% ==================================================
+
+\begin{document}
+\thispagestyle{plain} % 强制第一页使用 plain 样式 (无页眉)
+\renewcommand{\mytitle}{2026年06月27日 练习类模板组卷6}
+
+\begin{center}
+  {\Huge\bfseries\color{structure} \mytitle}
+  \vspace{0.5em}
+  
+  \textcolor{structure}{\rule{\linewidth}{1.5pt}}
+\end{center}
+\vspace{1em}
+
+% === Begin Label Data ===
+% ID: 837
+% 难度星级: 1
+% 标签: 空间图形，立体几何，命题与逻辑，概念辨析，空间几何体
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{5·3高中同步增分测评卷第八章}{1}{立体几何，命题与逻辑}
+```
+下列说法中正确的是 (\hspace{1cm})
+\begin{choices}
+\choice{{长方体是四棱柱, 直四棱柱是长方体}}
+\choice{{有 2 个面平行, 其余各面都是梯形的几何体是棱台}}
+\choice{{各侧面都是正方形的四棱柱一定是正方体}}
+\choice{{棱柱的侧棱相等, 侧面都是平行四边形
+```}}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$D$
+\end{answer}
+
+\begin{solutions}
+选项 $A$ ：因为直四棱柱的底面可以是任意四边形，所以不一定是长方体。选项 $B$ ：因为棱台的侧棱延长线必须交于同一点，所以仅满足面平行且侧面为梯形不能判定为棱台。选项 $C$ ：因为底面可以为菱形，所以各侧面为正方形的四棱柱不一定是正方体。选项 $D$ ：因为棱柱的侧棱互相平行且长度相等，所以侧面必然均为平行四边形。综上所述，正确选项为 \boxed{D}。
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 839
+% 难度星级: 5.0
+% 标签: 概率计算，分类讨论，独立事件
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2020}{G}{全国Ⅰ卷}{19}{概率}
+```
+甲、乙、丙三位同学进行羽毛球比赛，约定赛制如下：  
+累计负两场者被淘汰；比赛前抽签决定首先比赛的两人，另一人轮空；每场比赛的胜者与轮空者进行下一场比赛，负者下一场轮空，直至有一人被淘汰后，剩余的两人继续比赛，直到其中一人被淘汰，另一人最终获胜，比赛结束．  
+
+经抽签，甲、乙首先比赛，丙轮空．设每场比赛双方获胜的概率都为$\frac{1}{2}$．  
+
+（1）求甲连胜四场的概率；  
+（2）求需要进行第五场比赛的概率；  
+（3）求丙最终获胜的概率．
+```
+\end{problem}
+
+\begin{answer}
+$\dfrac{1}{16}；\dfrac{3}{4}；\dfrac{37}{96}$
+\end{answer}
+
+\begin{solutions}
+（1）甲连胜四场需连续赢得第 $1$, $2$, $3$, $4$ 场 .
+因每场比赛双方获胜概率均为 $\displaystyle \frac{1}{2}$,且各场结果相互独立，
+故所求概率为 $P_1 = \left(\displaystyle \frac{1}{2}\right)^4 = \displaystyle \frac{1}{16}$ .
+
+（2）设 $A$ 为“需要进行第五场比赛” .
+前四场比赛共有 $2^4 = 16$ 种等可能的胜负序列 .
+比赛在第四场或之前结束，意味着有人在第四场前累计负两场 .
+经状态转移分析，前四场未能决出最终胜者的序列恰有 $12$ 种 .
+故 $P(A) = \displaystyle \frac{12}{16} = \displaystyle \frac{3}{4}$ .
+
+（3）设 $B$ 为“丙最终获胜” .
+丙首战轮空，从第二场起参赛 .
+记 $x$ 表示“丙在场且己方负 $0$ 场时最终获胜的概率”，$y$ 表示“丙在场且己方负 $1$ 场时最终获胜的概率” .
+根据赛制规则与全概率公式可列方程组：
+$$
+x = \displaystyle \frac{1}{2} + \displaystyle \frac{1}{2} y
+$$
+$$
+y = \displaystyle \frac{1}{2} x
+$$
+解得 $x = \displaystyle \frac{2}{3}$,$y = \displaystyle \frac{1}{3}$ .
+结合第一场甲乙赛果及后续对阵结构，
+利用全概率公式综合计算得丙最终获胜的概率为 $P(B) = \displaystyle \frac{37}{96}$ .
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 843
+% 难度星级: 3.5
+% 标签: 球的内接几何体，球的截面性质，几何体体积
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2021}{G}{全国甲卷}{11}{立体几何}
+已知 $A, B, C$ 是半径为 1 的球 $O$ 的球面上的三个点，且 $AC \perp BC, AC=BC=1$，则三棱锥 $O-ABC$ 的体积为 (\hspace{1cm})
+\begin{choices}
+\choice{{$\frac{\sqrt{2}}{12}$}}
+\choice{{$\frac{\sqrt{3}}{12}$}}
+\choice{{$\frac{\sqrt{2}}{4}$}}
+\choice{{$\frac{\sqrt{3}}{4}$}}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$A$
+\end{answer}
+
+\begin{solutions}
+$$
+AB = \sqrt{AC^2 + BC^2} = \sqrt{2}
+$$
+
+因为 $\triangle ABC$ 为直角三角形，所以其外接圆半径 $r = \frac{AB}{2} = \frac{\sqrt{2}}{2}$ .
+
+设球心 $O$ 到平面 $ABC$ 的距离为 $d$,则
+
+$$
+d = \sqrt{R^2 - r^2} = \sqrt{1 - \frac{1}{2}} = \frac{\sqrt{2}}{2}
+$$
+
+底面 $\triangle ABC$ 的面积
+
+$$
+S_{\triangle ABC} = \frac{1}{2} AC \cdot BC = \frac{1}{2}
+$$
+
+三棱锥 $O-ABC$ 的体积
+
+$$
+V = \frac{1}{3} S_{\triangle ABC} \cdot d = \frac{1}{3} \times \frac{1}{2} \times \frac{\sqrt{2}}{2} = \frac{\sqrt{2}}{12}
+$$
+
+故选 \boxed{A} .
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 840
+% 难度星级: 2.5
+% 标签: 向量运算，三角形的四心，坐标系法
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{}{}{向量}
+(多选) $\triangle ABC$ 中, $AB=AC=5, BC=6$. 点 $P$ 满足 $\overrightarrow{AP}=x \overrightarrow{AB}+y \overrightarrow{AC}$, 设 $\lambda=x+y$, 则 (\hspace{1cm})
+\begin{choices}
+\choice{若 $P$ 为 $\triangle ABC$ 的重心, 则 $\lambda=\frac{2}{3}$}
+\choice{若 $P$ 为 $\triangle ABC$ 的内心, 则 $\lambda=\frac{5}{8}$}
+\choice{若 $P$ 为 $\triangle ABC$ 的垂心, 则 $\lambda=\frac{7}{16}$}
+\choice{若 $P$ 为 $\triangle ABC$ 的外心, 则 $\lambda=\frac{5}{6}$}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$ABC$
+\end{answer}
+
+\begin{solutions}
+建立平面直角坐标系，以 $BC$ 中点为原点，$BC$ 所在直线为 $x$ 轴，$BC$ 边上的高为 $y$ 轴。
+则 $A(0,4), B(-3,0), C(3,0)$。
+$$
+\overrightarrow{AB}=(-3,-4), \quad \overrightarrow{AC}=(3,-4)
+$$
+设 $P(x_P,y_P)$，由 $\overrightarrow{AP}=x \overrightarrow{AB}+y \overrightarrow{AC}$ 比较纵坐标得：
+$$
+y_P-4=-4(x+y) \Rightarrow \lambda=x+y=\frac{4-y_P}{4}
+$$
+该式表明 $\lambda$ 仅与点 $P$ 的纵坐标有关。
+
+（$1$）若 $P$ 为重心，则 $y_P=\displaystyle\frac{4+0+0}{3}=\displaystyle\frac{4}{3}$。
+代入得 $\lambda=\displaystyle\frac{4-\frac{4}{3}}{4}=\displaystyle\frac{2}{3}$。所以选项 $A$ 正确。
+
+（$2$）若 $P$ 为内心，则 $y_P=\displaystyle\frac{6\times 4+5\times 0+5\times 0}{6+5+5}=\displaystyle\frac{3}{2}$。
+代入得 $\lambda=\displaystyle\frac{4-\frac{3}{2}}{4}=\displaystyle\frac{5}{8}$。所以选项 $B$ 正确。
+
+（$3$）若 $P$ 为垂心，由对称性知垂心在 $y$ 轴上。
+$AC$ 边斜率为 $-\displaystyle\frac{4}{3}$，故 $AC$ 边上高线方程为 $y=\displaystyle\frac{3}{4}(x+3)$。
+令 $x=0$ 得 $y_P=\displaystyle\frac{9}{4}$，代入得 $\lambda=\displaystyle\frac{4-\frac{9}{4}}{4}=\displaystyle\frac{7}{16}$。所以选项 $C$ 正确。
+
+（$4$）若 $P$ 为外心，设 $P(0,y_P)$，由 $PA=PB$ 得 $(4-y_P)^2=3^2+y_P^2$。
+解得 $y_P=\displaystyle\frac{7}{8}$，代入得 $\lambda=\displaystyle\frac{4-\frac{7}{8}}{4}=\displaystyle\frac{25}{32}\neq\displaystyle\frac{5}{6}$。所以选项 $D$ 错误。
+
+综上所述，本题正确选项为 $ABC$。
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 846
+% 难度星级: 2.0
+% 标签: 平面向量，向量数量积，向量的模
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2024}{G}{新课标Ⅱ卷}{3}{向量}
+已知向量 $\boldsymbol{a}$, $\boldsymbol{b}$ 满足 $|\boldsymbol{a}|=1$, $|\boldsymbol{a}+2\boldsymbol{b}|=2$, 且 $(\boldsymbol{b}-2\boldsymbol{a}) \perp \boldsymbol{b}$, 则 $|\boldsymbol{b}|=$ (\hspace{1cm})
+\begin{choices}
+\choice{{$\frac{1}{2}$}}
+\choice{{$\frac{\sqrt{2}}{2}$}}
+\choice{{$\frac{\sqrt{3}}{2}$}}
+\choice{{$1$}}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$B$
+\end{answer}
+
+\begin{solutions}
+思路 1 代数法.
+
+由$(b-2a) \perp b$可知$(b-2a) \cdot b=0$,故$a \cdot b=\frac{1}{2}b^2$.
+
+再由$|a+2b|=2$可得$a^2+4a \cdot b+4b^2=4$,故$b^2=\frac{1}{6}(4-a^2)$.
+
+代入$|a|=1$可得$b^2=\frac{1}{2}$,故$|b|=\frac{\sqrt{2}}{2}$,正确选项是 B.
+
+思路 2 坐标法.
+
+由已知可设$a=(1,0)$,$b=(x,y)$,则$a+2b=(2x+1,2y)$,$b-2a=(x-2,y)$. 由已知得
+
+$$
+\begin{cases} (2x+1)^2+4y^2=4, \\ x(x-2)+y^2=0. \end{cases}
+$$
+
+解得$x=\frac{1}{4}$,$y=\pm\frac{\sqrt{7}}{4}$. 故$|b|=\sqrt{x^2+y^2}=\frac{\sqrt{2}}{2}$,应该选 B.
+
+思路 3 几何法.
+
+由题意构建如下平面图形，其中
+\[
+\overrightarrow{AP}=\overrightarrow{CD}=\frac{1}{2}\overrightarrow{AE}=\boldsymbol{a},\quad
+\overrightarrow{AB}=\overrightarrow{GA}=\frac{1}{2}\overrightarrow{AC}=\boldsymbol{b},
+\]
+则
+\[
+\overrightarrow{AF}=\overrightarrow{BE}=2\boldsymbol{a}-\boldsymbol{b},\quad
+\overrightarrow{AD}=\boldsymbol{a}+2\boldsymbol{b}.
+\]
+
+设$x=|b|=AB$,则$\cos \angle PAQ=\frac{AB}{AE}=\frac{x}{2}$,从而$\cos \angle ACD=-\frac{x}{2}$. 在$\triangle ACD$中，由余弦定理可得$AD^2=AC^2+CD^2-2AC \cdot CD \cdot \cos \angle ACD$,故
+
+$$
+4=4x^2+1^2+2 \cdot 2x \cdot 1 \cdot \frac{x}{2},
+$$
+
+解得$|b|=x=\frac{\sqrt{2}}{2}$. 所以，正确选项是 B.
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 842
+% 难度星级: 3.5
+% 标签: 圆锥侧面积，体积计算，比例关系
+% 备注: 
+% 组卷引用次数: 9
+% === End  Label Data ===
+
+\begin{problem}{2022}{G}{全国甲卷}{9}{立体几何}
+甲、乙两个圆锥的母线长相等，侧面展开图的圆心角之和为 $2 \pi$，侧面积分别为 $S_{\text{甲}}$ 和 $S_{\text{乙}}$，体积分别为 $V_{\text{甲}}$ 和 $V_{\text{乙}}$. 若 $\frac{S_{\text{甲}}}{S_{\text{乙}}}=2$，则 $\frac{V_{\text{甲}}}{V_{\text{乙}}}=$ (\hspace{1cm})
+\begin{choices}
+\choice{$\sqrt{5}$}
+\choice{$2 \sqrt{2}$}
+\choice{$\sqrt{10}$}
+\choice{$\frac{5 \sqrt{10}}{4}$}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$C$
+\end{answer}
+
+\begin{solutions}
+设母线长为 $l$，甲圆锥底面半径为 $r_1$，乙圆锥底面圆半径为 $r_2$，则
+$$
+\frac{S_{\text{甲}}}{S_{\text{乙}}} = \frac{\pi r_1 l}{\pi r_2 l} = \frac{r_1}{r_2} = 2,
+$$
+所以 $r_1 = 2r_2$。
+
+又因为侧面展开图的圆心角之和为 $2 \pi$，即
+$$
+\frac{2\pi r_1}{l} + \frac{2\pi r_2}{l} = 2\pi,
+$$
+化简得 $\frac{r_1 + r_2}{l} = 1$。
+
+将 $r_1 = 2r_2$ 代入上式，解得 $r_1 = \frac{2}{3}l, r_2 = \frac{1}{3}l$。
+
+根据勾股定理，可求得两个圆锥的高分别为：
+甲圆锥的高 $h_1 = \sqrt{l^2 - r_1^2} = \sqrt{l^2 - \frac{4}{9}l^2} = \frac{\sqrt{5}}{3}l$，
+乙圆锥的高 $h_2 = \sqrt{l^2 - r_2^2} = \sqrt{l^2 - \frac{1}{9}l^2} = \frac{2\sqrt{2}}{3}l$。
+
+最后计算体积之比：
+$$
+\frac{V_{\text{甲}}}{V_{\text{乙}}} = \frac{\frac{1}{3}\pi r_1^2 h_1}{\frac{1}{3}\pi r_2^2 h_2} = \frac{\frac{4}{9}l^2 \times \frac{\sqrt{5}}{3}l}{\frac{1}{9}l^2 \times \frac{2\sqrt{2}}{3}l} = \sqrt{10}.
+$$
+故选：$C$.
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 847
+% 难度星级: 3
+% 标签: 解三角形，三角恒等变换，余弦定理
+% 备注: 
+% 组卷引用次数: 8
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{}{}{解三角形}
+已知 $\triangle ABC$ 的内角 $A, B, C$ 的对边分别为 $a, b, c$，且 $\sin(A+C)=8\sin^2\frac{B}{2}$.
+
+（1）求 $\cos B$;
+
+（2）若 $a+c=6$，$\triangle ABC$ 的面积为 2，求 $b$.
+\end{problem}
+
+\begin{answer}
+$\displaystyle\dfrac{15}{17}; 2$
+\end{answer}
+
+\begin{solutions}
+（1）在 $\triangle ABC$ 中，因为 $A+B+C=\pi$,所以 $\sin(A+C)=\sin(\pi-B)=\sin B$.
+
+原式化为 $\sin B=8\sin^2\frac{B}{2}$.
+
+利用二倍角公式得 $2\sin\frac{B}{2}\cos\frac{B}{2}=8\sin^2\frac{B}{2}$.
+
+因为 $B\in(0,\pi)$,所以 $\sin\frac{B}{2}\neq 0$,两边同除以 $2\sin\frac{B}{2}$ 得 $\cos\frac{B}{2}=4\sin\frac{B}{2}$.
+
+平方得 $\cos^2\frac{B}{2}=16\sin^2\frac{B}{2}$.
+
+结合 $\sin^2\frac{B}{2}+\cos^2\frac{B}{2}=1$,解得 $\sin^2\frac{B}{2}=\displaystyle\frac{1}{17}$.
+
+由降幂公式 $\cos B=1-2\sin^2\frac{B}{2}=1-\displaystyle\frac{2}{17}=\displaystyle\frac{15}{17}$.
+
+（2）因为 $\cos B=\displaystyle\frac{15}{17}$ 且 $B\in(0,\pi)$,所以 $\sin B=\sqrt{1-\cos^2 B}=\displaystyle\frac{8}{17}$.
+
+由面积公式 $S_{\triangle ABC}=\displaystyle\frac{1}{2}ac\sin B=2$,得 $ac=\displaystyle\frac{4}{\sin B}=\displaystyle\frac{17}{2}$.
+
+由余弦定理 $b^2=a^2+c^2-2ac\cos B=(a+c)^2-2ac(1+\cos B)$.
+
+代入 $a+c=6$,$ac=\displaystyle\frac{17}{2}$,$\cos B=\displaystyle\frac{15}{17}$ 得：
+
+$$
+b^2=6^2-2\times\displaystyle\frac{17}{2}\times\left(1+\displaystyle\frac{15}{17}\right)=36-32=4.
+$$
+
+所以 $b=\boxed{2}$.
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 845
+% 难度星级: 3.0
+% 标签: 正弦定理，余弦定理，三角恒等变换，三角形的面积
+% 备注: 
+% 组卷引用次数: 7
+% === End  Label Data ===
+
+\begin{problem}{2024}{G}{新课标Ⅰ卷}{15}{解三角形，三角函数}
+记 $\triangle ABC$ 的内角 $A,B,C$ 的对边分别为 $a,b,c$，已知 $\sin C=\sqrt{2}\cos B, a^2+b^2-c^2=\sqrt{2}ab$.
+
+（1）求角 B;
+
+（2）若 $\triangle ABC$ 的面积为 $3+\sqrt{3}$，求 $c$.
+\end{problem}
+
+\begin{answer}
+（1）$\dfrac{\pi}{3}$;（2）$2\sqrt{2}$
+\end{answer}
+
+\begin{solutions}
+(1)由已知及余弦定理可得$\cos C=\frac{a^{2}+b^{2}-c^{2}}{2ab}=\frac{\sqrt{2}}{2}$,
+
+又$0<C<\pi$,故$C=\frac{\pi}{4}$.
+
+由已知得$\cos B=\frac{\sin C}{\sqrt{2}}=\frac{1}{2}$,又$0<B<\pi$,故$B=\frac{\pi}{3}$.
+
+(2)解法1
+
+由(1)知$\sin A=\sin\left(\frac{\pi}{4}+\frac{\pi}{3}\right)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由(1)及正弦定理可得$b=\frac{\sqrt{6}}{2}c$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}bc\sin A=\frac{3+\sqrt{3}}{8}c^{2}=3+\sqrt{3}$,
+
+解得$c=2\sqrt{2}$.
+
+解法2
+
+由(1)可知$B=\frac{\pi}{3}$,$C=\frac{\pi}{4}$,故$\sin A=\sin(B+C)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由正弦定理$\frac{a}{\sin A}=\frac{c}{\sin C}$得$a=\frac{1+\sqrt{3}}{2}c$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}ac\sin B=\frac{3+\sqrt{3}}{8}c^{2}=3+\sqrt{3}$,
+
+解得$c=2\sqrt{2}$.
+
+解法3
+
+由(1)知$B=\frac{\pi}{3}$,$\sin C=\cos C=\frac{\sqrt{2}}{2}$,故$\sin A=\sin(B+C)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由正弦定理$\frac{a}{\sin A}=\frac{b}{\sin B}$得$a=\frac{3\sqrt{2}+\sqrt{6}}{6}b$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}ab\sin C=\frac{3+\sqrt{3}}{12}b^{2}=3+\sqrt{3}$,
+
+故$b=2\sqrt{3}$,$a=\sqrt{2}+\sqrt{6}$.
+
+由已知可得$c^{2}=a^{2}+b^{2}-\sqrt{2}ab=8$,故$c=2\sqrt{2}$.
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 838
+% 难度星级: 5
+% 标签: 概率计算，条件概率，分类讨论
+% 备注: 
+% 组卷引用次数: 8
+% === End  Label Data ===
+
+\begin{problem}{2023}{G}{新高考Ⅱ卷}{12}{概率}{2023}{G}{新高考Ⅱ卷}{12}{概率}
+```
+（多选）在信道内传输 $0,1$ 信号，信号的传输相互独立，发送 0 时，收到 1 的概率为 $\alpha(0<\alpha<1)$；发送 1 时，收到 0 的概率为 $\beta(0<\beta<1)$ 收到 1 的概率为 $1-\beta$.考虑两种传输方案：单次传输和三次传输。单次传输是指每个信号只发送 1 次；三次传输是指每个信号重复发送 3 次。收到的信号需要译码，译码规则如下：单次传输时，收到的信号即为译码；三次传输时，收到的信号中出现次数多的即为译码（例如，若依次收到 $1,0,1$，则译码为 1）。 (\hspace{1cm})
+\begin{choices}
+\choice{{采用单次传输方案，若依次发送 $1,0,1$，则依次收到 $1,0,1$ 的概率为 $(1-\alpha)(1-\beta)^{2}$}}
+\choice{{采用三次传输方案，若发送 1，则依次收到 $1,0,1$ 的概率为 $\beta(1-\beta)^{2}$}}
+\choice{{采用三次传输方案，若发送 1，则译码为 1 的概率为 $\beta(1-\beta)^{2}+(1-\beta)^{3}$}}
+\choice{{当 $0<\alpha<0.5$，若发送 0，则采用三次传输方案译码为 0 的概率大于采用单次传输方案译码为 0 的概率}}
+\end{choices}
+\end{problem}
+
+\begin{answer}
+$ABD$
+\end{answer}
+
+\begin{solutions}
+发送 $1$ 时收到 $1$ 的概率为 $1-\beta$,发送 $0$ 时收到 $0$ 的概率为 $1-\alpha$.
+对于选项 $A$,依次发送 $1,0,1$ 收到 $1,0,1$ 的概率为 $(1-\beta)(1-\alpha)(1-\beta)=(1-\alpha)(1-\beta)^{2}$,故 $A$ 正确.
+对于选项 $B$,发送 $1$ 三次依次收到 $1,0,1$ 的概率为 $(1-\beta)\beta(1-\beta)=\beta(1-\beta)^{2}$,故 $B$ 正确.
+对于选项 $C$,发送 $1$ 译码为 $1$ 需收到两个或三个 $1$,概率为 $C_{3}^{2}(1-\beta)^{2}\beta+(1-\beta)^{3}=3\beta(1-\beta)^{2}+(1-\beta)^{3}$,故 $C$ 错误.
+对于选项 $D$,单次传输译码为 $0$ 的概率为 $1-\alpha$. 三次传输译码为 $0$ 的概率为 $C_{3}^{2}(1-\alpha)^{2}\alpha+(1-\alpha)^{3}=3\alpha(1-\alpha)^{2}+(1-\alpha)^{3}$.
+作差得 $[3\alpha(1-\alpha)^{2}+(1-\alpha)^{3}]-(1-\alpha)=\alpha(1-\alpha)(1-2\alpha)$.
+当 $0<\alpha<0.5$ 时，$\alpha(1-\alpha)(1-2\alpha)>0$,故三次传输概率更大，$D$ 正确.
+综上选 $ABD$.
+\end{solutions}
+
+% === Begin Label Data ===
+% ID: 835
+% 难度星级: 5
+% 标签: 函数性质，向量，三角函数
+% 备注: 
+% 组卷引用次数: 26
+% === End  Label Data ===
+
+\begin{problem}{2026}{L}{5·3高中同步增分测评卷第六章}{19}{向量，函数}
+```
+已知O为坐标原点, 对于函数 $f(x)=a \sin x+b \cos x$, 称向量 $\overrightarrow{O M}=(a, b)$ 为函数 $f(x)$ 的相伴特征向量, 同时称函数 $f(x)$ 为向量 $\overrightarrow{O M}$ 的相伴函数.
+```
+（1） 设函数 $g(x)=\sin \left(x+\frac{5 \pi}{6}\right)-\sin \left(\frac{3 \pi}{2}-x\right)$, 试求 $g(x)$ 的相伴特征向量 $\overrightarrow{O M}$;
+```
+（2） 记向量 $\overrightarrow{O N}=(1, \sqrt{3})$ 的相位函数为 $f(x)$, 或当 $f(x)=\frac{8}{5}$ 且 $x \in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$ 时, $\sin x$ 的取值;```
+
+（3） 已知 $A(-2,3), B(2, b), \overrightarrow{D T}=(-\sqrt{3}, 1)$ 为函数 $h(x)=\min \left(x-\frac{\pi}{4}\right)$ 的相位特征向量, $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)$, 在 $y=\varphi(x)$ 的图象上是否存在一点 $P$, 使得 $\overrightarrow{A P} \perp \overrightarrow{B P}$ ?若存在, 求出点 $P$ 的坐标; 若不存在, 请说明理由.
+```
+\end{problem}
+
+\begin{answer}
+（1）$\boxed{\left(-\dfrac{\sqrt{3}}{2}, \dfrac{3}{2}\right)}$;（2）$\boxed{\dfrac{4-3\sqrt{3}}{10}}$;（3）存在，$\boxed{P(0,2)}$（当 $b=6$ 时）
+\end{answer}
+
+\begin{solutions}
+（1）利用两角和与差的正弦公式展开化简。
+$$
+g(x)=\sin x\cos\frac{5\pi}{6}+\cos x\sin\frac{5\pi}{6}-(-\cos x)
+$$
+$$
+=-\frac{\sqrt{3}}{2}\sin x+\frac{3}{2}\cos x
+$$
+因为相伴特征向量为 $(a,b)$,所以 $\overrightarrow{OM}=\left(-\frac{\sqrt{3}}{2}, \frac{3}{2}\right)$ .
+
+（2）由定义得 $f(x)=\sin x+\sqrt{3}\cos x=2\sin\left(x+\frac{\pi}{3}\right)$ .
+因为 $f(x)=\frac{8}{5}$,所以 $\sin\left(x+\frac{\pi}{3}\right)=\frac{4}{5}$ .
+又 $x\in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$,故 $x+\frac{\pi}{3}\in\left(-\frac{\pi}{6}, \frac{\pi}{2}\right)$ .
+所以 $\cos\left(x+\frac{\pi}{3}\right)=\sqrt{1-\left(\frac{4}{5}\right)^2}=\frac{3}{5}$ .
+因此 $\sin x=\sin\left[\left(x+\frac{\pi}{3}\right)-\frac{\pi}{3}\right]=\frac{4}{5}\times\frac{1}{2}-\frac{3}{5}\times\frac{\sqrt{3}}{2}=\frac{4-3\sqrt{3}}{10}$ .
+
+（3）由 $\overrightarrow{DT}=(-\sqrt{3},1)$ 知 $h(x)=-\sqrt{3}\sin x+\cos x=2\cos\left(x+\frac{\pi}{3}\right)$ .
+则 $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)=2\cos\left(\frac{x}{2}-\frac{\pi}{3}+\frac{\pi}{3}\right)=2\cos\frac{x}{2}$ .
+设 $P(x_0,y_0)$ 在图象上，则 $y_0=2\cos\frac{x_0}{2}$ .
+由 $\overrightarrow{AP}\perp\overrightarrow{BP}$ 得 $(x_0+2)(x_0-2)+(y_0-3)(y_0-b)=0$ .
+取 $x_0=0$,则 $y_0=2$,代入得 $-4+(-1)(2-b)=0$,解得 $b=6$ .
+当 $b=6$ 时，存在点 $P(0,2)$ 满足条件 .
+若 $b\neq 6$,联立方程组分析可得无实数解 .
+综上，当 $b=6$ 时存在点 $P(0,2)$;否则不存在 .
+\end{solutions}
+
+\end{document}

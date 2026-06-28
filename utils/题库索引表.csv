@@ -1,0 +1,334 @@
+﻿题目ID,文件名称,相对文件路径,年份,试卷类型,试卷名称,原卷题号,知识板块,标签,包含TikZ绘图,题型,难度星级,包含解析,组卷引用次数,备注,初次录入的时间,最后修改时间,题干,答案,解析
+835,2026-L-5·3高中同步增分测评卷第六章-19-向量，函数,向量\2026\2026-L-5·3高中同步增分测评卷第六章-19-向量，函数.tex,2026,L,5·3高中同步增分测评卷第六章,19,向量，函数,函数性质，向量，三角函数,否,解答题,5,是,30,,2026-06-27 00:47:40,2026-06-27 23:32:52,"{2026}{L}{5·3高中同步增分测评卷第六章}{19}{向量，函数}
+已知O为坐标原点, 对于函数 $f(x)=a \sin x+b \cos x$, 称向量 $\overrightarrow{O M}=(a, b)$ 为函数 $f(x)$ 的相伴特征向量, 同时称函数 $f(x)$ 为向量 $\overrightarrow{O M}$ 的相伴函数.
+
+（1） 设函数 $g(x)=\sin \left(x+\frac{5 \pi}{6}\right)-\sin \left(\frac{3 \pi}{2}-x\right)$, 试求 $g(x)$ 的相伴特征向量 $\overrightarrow{O M}$;
+
+（2） 记向量 $\overrightarrow{O N}=(1, \sqrt{3})$ 的相位函数为 $f(x)$, 或当 $f(x)=\frac{8}{5}$ 且 $x \in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$ 时, $\sin x$ 的取值;
+
+（3） 已知 $A(-2,3), B(2, b), \overrightarrow{D T}=(-\sqrt{3}, 1)$ 为函数 $h(x)=\min \left(x-\frac{\pi}{4}\right)$ 的相位特征向量, $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)$, 在 $y=\varphi(x)$ 的图象上是否存在一点 $P$, 使得 $\overrightarrow{A P} \perp \overrightarrow{B P}$ ?若存在, 求出点 $P$ 的坐标; 若不存在, 请说明理由.","（1）$\boxed{\left(-\dfrac{\sqrt{3}}{2}, \dfrac{3}{2}\right)}$;（2）$\boxed{\dfrac{4-3\sqrt{3}}{10}}$;（3）存在，$\boxed{P(0,2)}$（当 $b=6$ 时）","（1）利用两角和与差的正弦公式展开化简。
+$$
+g(x)=\sin x\cos\frac{5\pi}{6}+\cos x\sin\frac{5\pi}{6}-(-\cos x)
+$$
+$$
+=-\frac{\sqrt{3}}{2}\sin x+\frac{3}{2}\cos x
+$$
+因为相伴特征向量为 $(a,b)$,所以 $\overrightarrow{OM}=\left(-\frac{\sqrt{3}}{2}, \frac{3}{2}\right)$ .
+
+（2）由定义得 $f(x)=\sin x+\sqrt{3}\cos x=2\sin\left(x+\frac{\pi}{3}\right)$ .
+因为 $f(x)=\frac{8}{5}$,所以 $\sin\left(x+\frac{\pi}{3}\right)=\frac{4}{5}$ .
+又 $x\in\left(-\frac{\pi}{2}, \frac{\pi}{6}\right)$,故 $x+\frac{\pi}{3}\in\left(-\frac{\pi}{6}, \frac{\pi}{2}\right)$ .
+所以 $\cos\left(x+\frac{\pi}{3}\right)=\sqrt{1-\left(\frac{4}{5}\right)^2}=\frac{3}{5}$ .
+因此 $\sin x=\sin\left[\left(x+\frac{\pi}{3}\right)-\frac{\pi}{3}\right]=\frac{4}{5}\times\frac{1}{2}-\frac{3}{5}\times\frac{\sqrt{3}}{2}=\frac{4-3\sqrt{3}}{10}$ .
+
+（3）由 $\overrightarrow{DT}=(-\sqrt{3},1)$ 知 $h(x)=-\sqrt{3}\sin x+\cos x=2\cos\left(x+\frac{\pi}{3}\right)$ .
+则 $\varphi(x)=h\left(\frac{x}{2}-\frac{\pi}{3}\right)=2\cos\left(\frac{x}{2}-\frac{\pi}{3}+\frac{\pi}{3}\right)=2\cos\frac{x}{2}$ .
+设 $P(x_0,y_0)$ 在图象上，则 $y_0=2\cos\frac{x_0}{2}$ .
+由 $\overrightarrow{AP}\perp\overrightarrow{BP}$ 得 $(x_0+2)(x_0-2)+(y_0-3)(y_0-b)=0$ .
+取 $x_0=0$,则 $y_0=2$,代入得 $-4+(-1)(2-b)=0$,解得 $b=6$ .
+当 $b=6$ 时，存在点 $P(0,2)$ 满足条件 .
+若 $b\neq 6$,联立方程组分析可得无实数解 .
+综上，当 $b=6$ 时存在点 $P(0,2)$;否则不存在 ."
+837,2026-L-5·3高中同步增分测评卷第八章-1-立体几何，命题与逻辑,立体几何\2026\2026-L-5·3高中同步增分测评卷第八章-1-立体几何，命题与逻辑.tex,2026,L,5·3高中同步增分测评卷第八章,1,立体几何，命题与逻辑,空间图形，立体几何，命题与逻辑，概念辨析，空间几何体,否,选择题,1.5,是,13,,2026-06-27 13:55:07,2026-06-27 23:43:17,"{2026}{L}{5·3高中同步增分测评卷第八章}{1}{立体几何，命题与逻辑}
+下列说法中正确的是 (\hspace{1cm})
+\begin{choices}
+\choice{长方体是四棱柱, 直四棱柱是长方体}
+\choice{有 2 个面平行, 其余各面都是梯形的几何体是棱台}
+\choice{各侧面都是正方形的四棱柱一定是正方体}
+\choice{棱柱的侧棱相等, 侧面都是平行四边形}
+\end{choices}",$D$,"选项 $A$：因为直四棱柱的底面可以是任意四边形，所以不一定是长方体。
+
+选项 $B$：因为棱台的侧棱延长线必须交于同一点，所以仅满足面平行且侧面为梯形不能判定为棱台。
+
+选项 $C$：因为底面可以为菱形，所以各侧面为正方形的四棱柱不一定是正方体。
+
+选项 $D$：因为棱柱的侧棱互相平行且长度相等，所以侧面必然均为平行四边形。
+
+综上所述，正确选项为 \boxed{D}。"
+838,2023-G-新高考Ⅱ卷-12-概率,概率\2023\2023-G-新高考Ⅱ卷-12-概率.tex,2023,G,新高考Ⅱ卷,12,概率,概率计算，条件概率，分类讨论,否,选择题,5,是,12,,2026-06-27 14:08:16,2026-06-27 23:36:02,"{2023}{G}{新高考Ⅱ卷}{12}{概率}
+（多选）在信道内传输 $0,1$ 信号，信号的传输相互独立，发送 0 时，收到 1 的概率为 $\alpha(0<\alpha<1)$；发送 1 时，收到 0 的概率为 $\beta(0<\beta<1)$ 收到 1 的概率为 $1-\beta$.考虑两种传输方案：单次传输和三次传输。单次传输是指每个信号只发送 1 次；三次传输是指每个信号重复发送 3 次。收到的信号需要译码，译码规则如下：单次传输时，收到的信号即为译码；三次传输时，收到的信号中出现次数多的即为译码（例如，若依次收到 $1,0,1$，则译码为 1）。 (\hspace{1cm})
+\begin{choices}
+\choice{{采用单次传输方案，若依次发送 $1,0,1$，则依次收到 $1,0,1$ 的概率为 $(1-\alpha)(1-\beta)^{2}$}}
+\choice{{采用三次传输方案，若发送 1，则依次收到 $1,0,1$ 的概率为 $\beta(1-\beta)^{2}$}}
+\choice{{采用三次传输方案，若发送 1，则译码为 1 的概率为 $\beta(1-\beta)^{2}+(1-\beta)^{3}$}}
+\choice{{当 $0<\alpha<0.5$，若发送 0，则采用三次传输方案译码为 0 的概率大于采用单次传输方案译码为 0 的概率}}
+\end{choices}",$ABD$,"发送 $1$ 时收到 $1$ 的概率为 $1-\beta$,发送 $0$ 时收到 $0$ 的概率为 $1-\alpha$.
+对于选项 $A$,依次发送 $1,0,1$ 收到 $1,0,1$ 的概率为 $(1-\beta)(1-\alpha)(1-\beta)=(1-\alpha)(1-\beta)^{2}$,故 $A$ 正确.
+对于选项 $B$,发送 $1$ 三次依次收到 $1,0,1$ 的概率为 $(1-\beta)\beta(1-\beta)=\beta(1-\beta)^{2}$,故 $B$ 正确.
+对于选项 $C$,发送 $1$ 译码为 $1$ 需收到两个或三个 $1$,概率为 $C_{3}^{2}(1-\beta)^{2}\beta+(1-\beta)^{3}=3\beta(1-\beta)^{2}+(1-\beta)^{3}$,故 $C$ 错误.
+对于选项 $D$,单次传输译码为 $0$ 的概率为 $1-\alpha$. 三次传输译码为 $0$ 的概率为 $C_{3}^{2}(1-\alpha)^{2}\alpha+(1-\alpha)^{3}=3\alpha(1-\alpha)^{2}+(1-\alpha)^{3}$.
+作差得 $[3\alpha(1-\alpha)^{2}+(1-\alpha)^{3}]-(1-\alpha)=\alpha(1-\alpha)(1-2\alpha)$.
+当 $0<\alpha<0.5$ 时，$\alpha(1-\alpha)(1-2\alpha)>0$,故三次传输概率更大，$D$ 正确.
+综上选 $ABD$."
+839,2020-G-全国Ⅰ卷-19-概率,概率\2020\2020-G-全国Ⅰ卷-19-概率.tex,2020,G,全国Ⅰ卷,19,概率,概率计算，分类讨论，独立事件,否,解答题,5.0,是,13,,2026-06-27 14:13:27,2026-06-27 23:32:51,"{2020}{G}{全国Ⅰ卷}{19}{概率}
+甲、乙、丙三位同学进行羽毛球比赛，约定赛制如下：  
+累计负两场者被淘汰；比赛前抽签决定首先比赛的两人，另一人轮空；每场比赛的胜者与轮空者进行下一场比赛，负者下一场轮空，直至有一人被淘汰后，剩余的两人继续比赛，直到其中一人被淘汰，另一人最终获胜，比赛结束．  
+
+经抽签，甲、乙首先比赛，丙轮空．设每场比赛双方获胜的概率都为$\frac{1}{2}$．  
+
+（1）求甲连胜四场的概率；  
+
+（2）求需要进行第五场比赛的概率；  
+
+（3）求丙最终获胜的概率．",$\dfrac{1}{16}；\dfrac{3}{4}；\dfrac{37}{96}$,"（1）甲连胜四场需连续赢得第 $1$, $2$, $3$, $4$ 场 .
+因每场比赛双方获胜概率均为 $\displaystyle \frac{1}{2}$,且各场结果相互独立，
+故所求概率为 $P_1 = \left(\displaystyle \frac{1}{2}\right)^4 = \displaystyle \frac{1}{16}$ .
+
+（2）设 $A$ 为“需要进行第五场比赛” .
+前四场比赛共有 $2^4 = 16$ 种等可能的胜负序列 .
+比赛在第四场或之前结束，意味着有人在第四场前累计负两场 .
+经状态转移分析，前四场未能决出最终胜者的序列恰有 $12$ 种 .
+故 $P(A) = \displaystyle \frac{12}{16} = \displaystyle \frac{3}{4}$ .
+
+（3）设 $B$ 为“丙最终获胜” .
+丙首战轮空，从第二场起参赛 .
+记 $x$ 表示“丙在场且己方负 $0$ 场时最终获胜的概率”，$y$ 表示“丙在场且己方负 $1$ 场时最终获胜的概率” .
+根据赛制规则与全概率公式可列方程组：
+$$
+x = \displaystyle \frac{1}{2} + \displaystyle \frac{1}{2} y
+$$
+$$
+y = \displaystyle \frac{1}{2} x
+$$
+解得 $x = \displaystyle \frac{2}{3}$,$y = \displaystyle \frac{1}{3}$ .
+结合第一场甲乙赛果及后续对阵结构，
+利用全概率公式综合计算得丙最终获胜的概率为 $P(B) = \displaystyle \frac{37}{96}$ ."
+842,2022-G-全国甲卷-9-立体几何,立体几何\2022\2022-G-全国甲卷-9-立体几何.tex,2022,G,全国甲卷,9,立体几何,圆锥侧面积，体积计算，比例关系,否,选择题,3.5,是,13,,2026-06-27 18:47:04,2026-06-27 23:32:51,"{2022}{G}{全国甲卷}{9}{立体几何}
+甲、乙两个圆锥的母线长相等，侧面展开图的圆心角之和为 $2 \pi$，侧面积分别为 $S_{\text{甲}}$ 和 $S_{\text{乙}}$，体积分别为 $V_{\text{甲}}$ 和 $V_{\text{乙}}$. 若 $\frac{S_{\text{甲}}}{S_{\text{乙}}}=2$，则 $\frac{V_{\text{甲}}}{V_{\text{乙}}}=$ (\hspace{1cm})
+\begin{choices}
+\choice{$\sqrt{5}$}
+\choice{$2 \sqrt{2}$}
+\choice{$\sqrt{10}$}
+\choice{$\frac{5 \sqrt{10}}{4}$}
+\end{choices}",$C$,"设母线长为 $l$，甲圆锥底面半径为 $r_1$，乙圆锥底面圆半径为 $r_2$，则
+$$
+\frac{S_{\text{甲}}}{S_{\text{乙}}} = \frac{\pi r_1 l}{\pi r_2 l} = \frac{r_1}{r_2} = 2,
+$$
+所以 $r_1 = 2r_2$。
+
+又因为侧面展开图的圆心角之和为 $2 \pi$，即
+$$
+\frac{2\pi r_1}{l} + \frac{2\pi r_2}{l} = 2\pi,
+$$
+化简得 $\frac{r_1 + r_2}{l} = 1$。
+
+将 $r_1 = 2r_2$ 代入上式，解得 $r_1 = \frac{2}{3}l, r_2 = \frac{1}{3}l$。
+
+根据勾股定理，可求得两个圆锥的高分别为：
+甲圆锥的高 $h_1 = \sqrt{l^2 - r_1^2} = \sqrt{l^2 - \frac{4}{9}l^2} = \frac{\sqrt{5}}{3}l$，
+乙圆锥的高 $h_2 = \sqrt{l^2 - r_2^2} = \sqrt{l^2 - \frac{1}{9}l^2} = \frac{2\sqrt{2}}{3}l$。
+
+最后计算体积之比：
+$$
+\frac{V_{\text{甲}}}{V_{\text{乙}}} = \frac{\frac{1}{3}\pi r_1^2 h_1}{\frac{1}{3}\pi r_2^2 h_2} = \frac{\frac{4}{9}l^2 \times \frac{\sqrt{5}}{3}l}{\frac{1}{9}l^2 \times \frac{2\sqrt{2}}{3}l} = \sqrt{10}.
+$$
+故选：$C$."
+843,2021-G-全国甲卷-11-立体几何,立体几何\2021\2021-G-全国甲卷-11-立体几何.tex,2021,G,全国甲卷,11,立体几何,球的内接几何体，球的截面性质，几何体体积,否,选择题,3.5,是,13,,2026-06-27 19:21:44,2026-06-27 23:32:51,"{2021}{G}{全国甲卷}{11}{立体几何}
+已知 $A, B, C$ 是半径为 1 的球 $O$ 的球面上的三个点，且 $AC \perp BC, AC=BC=1$，则三棱锥 $O-ABC$ 的体积为 (\hspace{1cm})
+\begin{choices}
+\choice{{$\frac{\sqrt{2}}{12}$}}
+\choice{{$\frac{\sqrt{3}}{12}$}}
+\choice{{$\frac{\sqrt{2}}{4}$}}
+\choice{{$\frac{\sqrt{3}}{4}$}}
+\end{choices}",$A$,"$$
+AB = \sqrt{AC^2 + BC^2} = \sqrt{2}
+$$
+
+因为 $\triangle ABC$ 为直角三角形，所以其外接圆半径 $r = \frac{AB}{2} = \frac{\sqrt{2}}{2}$ .
+
+设球心 $O$ 到平面 $ABC$ 的距离为 $d$,则
+
+$$
+d = \sqrt{R^2 - r^2} = \sqrt{1 - \frac{1}{2}} = \frac{\sqrt{2}}{2}
+$$
+
+底面 $\triangle ABC$ 的面积
+
+$$
+S_{\triangle ABC} = \frac{1}{2} AC \cdot BC = \frac{1}{2}
+$$
+
+三棱锥 $O-ABC$ 的体积
+
+$$
+V = \frac{1}{3} S_{\triangle ABC} \cdot d = \frac{1}{3} \times \frac{1}{2} \times \frac{\sqrt{2}}{2} = \frac{\sqrt{2}}{12}
+$$
+
+故选 \boxed{A} ."
+844,2022-G-全国乙卷-17-解三角形，三角函数,解三角形\2022\2022-G-全国乙卷-17-解三角形，三角函数.tex,2022,G,全国乙卷,17,解三角形，三角函数,正弦定理，余弦定理，三角恒等变换,否,解答题,3.0,是,9,,2026-06-27 19:53:35,2026-06-27 22:54:06,"{2022}{G}{全国乙卷}{17}{解三角形，三角函数}
+记 $\triangle ABC$ 的内角 $A,B,C$ 的对边分别为 $a,b,c$, 已知 $\sin C\sin(A-B)=\sin B\sin(C-A)$.
+
+（1） 证明: $2a^2=b^2+c^2$;
+
+（2)）若 $a=5, \cos A=\frac{25}{31}$, 求 $\triangle ABC$ 的周长.",见解析；14,"【分析】（1）利用两角差的正弦公式化简，再根据正弦定理和余弦定理化角为边，从而即可得证；
+
+（2）根据（1）的结论结合余弦定理求出$bc$,从而可求得$b+c$,即可得解.
+
+【小问1详解】
+
+证明：因为$\sin C\sin(A-B)=\sin B\sin(C-A)$,
+
+所以$\sin C\sin A\cos B-\sin C\sin B\cos A=\sin B\sin C\cos A-\sin B\sin A\cos C$,
+
+所以$ac\cdot\frac{a^2+c^2-b^2}{2ac}-2bc\cdot\frac{b^2+c^2-a^2}{2bc}=-ab\cdot\frac{a^2+b^2-c^2}{2ab}$,
+
+即$\frac{a^2+c^2-b^2}{2}-\left(b^2+c^2-a^2\right)=-\frac{a^2+b^2-c^2}{2}$,
+
+所以$2a^2=b^2+c^2$;
+
+【小问2详解】
+
+解：因为$a=5,\cos A=\frac{25}{31}$,
+
+由（1）得$b^2+c^2=50$,
+
+由余弦定理可得$a^2=b^2+c^2-2bc\cos A$,
+
+则$50-\frac{50}{31}bc=25$,
+
+所以$bc=\frac{31}{2}$,
+
+故$(b+c)^2=b^2+c^2+2bc=50+31=81$,
+
+所以$b+c=9$,
+
+所以$\triangle ABC$的周长为$a+b+c=14$."
+845,2024-G-新课标Ⅰ卷-15-解三角形，三角函数,解三角形\2024\2024-G-新课标Ⅰ卷-15-解三角形，三角函数.tex,2024,G,新课标Ⅰ卷,15,解三角形，三角函数,正弦定理，余弦定理，三角恒等变换，三角形的面积,否,解答题,3.0,是,11,,2026-06-27 20:34:58,2026-06-27 23:32:51,"{2024}{G}{新课标Ⅰ卷}{15}{解三角形，三角函数}
+记 $\triangle ABC$ 的内角 $A,B,C$ 的对边分别为 $a,b,c$，已知 $\sin C=\sqrt{2}\cos B, a^2+b^2-c^2=\sqrt{2}ab$.
+
+（1）求角 B;
+
+（2）若 $\triangle ABC$ 的面积为 $3+\sqrt{3}$，求 $c$.",（1）$\dfrac{\pi}{3}$;（2）$2\sqrt{2}$,"(1)由已知及余弦定理可得$\cos C=\frac{a^{2}+b^{2}-c^{2}}{2ab}=\frac{\sqrt{2}}{2}$,
+
+又$0<C<\pi$,故$C=\frac{\pi}{4}$.
+
+由已知得$\cos B=\frac{\sin C}{\sqrt{2}}=\frac{1}{2}$,又$0<B<\pi$,故$B=\frac{\pi}{3}$.
+
+(2)解法1
+
+由(1)知$\sin A=\sin\left(\frac{\pi}{4}+\frac{\pi}{3}\right)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由(1)及正弦定理可得$b=\frac{\sqrt{6}}{2}c$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}bc\sin A=\frac{3+\sqrt{3}}{8}c^{2}=3+\sqrt{3}$,
+
+解得$c=2\sqrt{2}$.
+
+解法2
+
+由(1)可知$B=\frac{\pi}{3}$,$C=\frac{\pi}{4}$,故$\sin A=\sin(B+C)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由正弦定理$\frac{a}{\sin A}=\frac{c}{\sin C}$得$a=\frac{1+\sqrt{3}}{2}c$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}ac\sin B=\frac{3+\sqrt{3}}{8}c^{2}=3+\sqrt{3}$,
+
+解得$c=2\sqrt{2}$.
+
+解法3
+
+由(1)知$B=\frac{\pi}{3}$,$\sin C=\cos C=\frac{\sqrt{2}}{2}$,故$\sin A=\sin(B+C)=\frac{\sqrt{2}+\sqrt{6}}{4}$.
+
+由正弦定理$\frac{a}{\sin A}=\frac{b}{\sin B}$得$a=\frac{3\sqrt{2}+\sqrt{6}}{6}b$,故$\triangle ABC$的面积
+
+$S=\frac{1}{2}ab\sin C=\frac{3+\sqrt{3}}{12}b^{2}=3+\sqrt{3}$,
+
+故$b=2\sqrt{3}$,$a=\sqrt{2}+\sqrt{6}$.
+
+由已知可得$c^{2}=a^{2}+b^{2}-\sqrt{2}ab=8$,故$c=2\sqrt{2}$."
+846,2024-G-新课标Ⅱ卷-3-向量,向量\2024\2024-G-新课标Ⅱ卷-3-向量.tex,2024,G,新课标Ⅱ卷,3,向量,平面向量，向量数量积，向量的模,否,选择题,2.0,是,13,,2026-06-27 20:52:02,2026-06-27 23:32:51,"{2024}{G}{新课标Ⅱ卷}{3}{向量}
+已知向量 $\boldsymbol{a}$, $\boldsymbol{b}$ 满足 $|\boldsymbol{a}|=1$, $|\boldsymbol{a}+2\boldsymbol{b}|=2$, 且 $(\boldsymbol{b}-2\boldsymbol{a}) \perp \boldsymbol{b}$, 则 $|\boldsymbol{b}|=$ (\hspace{1cm})
+\begin{choices}
+\choice{{$\frac{1}{2}$}}
+\choice{{$\frac{\sqrt{2}}{2}$}}
+\choice{{$\frac{\sqrt{3}}{2}$}}
+\choice{{$1$}}
+\end{choices}",$B$,"思路 1 代数法.
+
+由$(b-2a) \perp b$可知$(b-2a) \cdot b=0$,故$a \cdot b=\frac{1}{2}b^2$.
+
+再由$|a+2b|=2$可得$a^2+4a \cdot b+4b^2=4$,故$b^2=\frac{1}{6}(4-a^2)$.
+
+代入$|a|=1$可得$b^2=\frac{1}{2}$,故$|b|=\frac{\sqrt{2}}{2}$,正确选项是 B.
+
+思路 2 坐标法.
+
+由已知可设$a=(1,0)$,$b=(x,y)$,则$a+2b=(2x+1,2y)$,$b-2a=(x-2,y)$. 由已知得
+
+$$
+\begin{cases} (2x+1)^2+4y^2=4, \\ x(x-2)+y^2=0. \end{cases}
+$$
+
+解得$x=\frac{1}{4}$,$y=\pm\frac{\sqrt{7}}{4}$. 故$|b|=\sqrt{x^2+y^2}=\frac{\sqrt{2}}{2}$,应该选 B.
+
+思路 3 几何法.
+
+由题意构建如下平面图形，其中
+\[
+\overrightarrow{AP}=\overrightarrow{CD}=\frac{1}{2}\overrightarrow{AE}=\boldsymbol{a},\quad
+\overrightarrow{AB}=\overrightarrow{GA}=\frac{1}{2}\overrightarrow{AC}=\boldsymbol{b},
+\]
+则
+\[
+\overrightarrow{AF}=\overrightarrow{BE}=2\boldsymbol{a}-\boldsymbol{b},\quad
+\overrightarrow{AD}=\boldsymbol{a}+2\boldsymbol{b}.
+\]
+
+设$x=|b|=AB$,则$\cos \angle PAQ=\frac{AB}{AE}=\frac{x}{2}$,从而$\cos \angle ACD=-\frac{x}{2}$. 在$\triangle ACD$中，由余弦定理可得$AD^2=AC^2+CD^2-2AC \cdot CD \cdot \cos \angle ACD$,故
+
+$$
+4=4x^2+1^2+2 \cdot 2x \cdot 1 \cdot \frac{x}{2},
+$$
+
+解得$|b|=x=\frac{\sqrt{2}}{2}$. 所以，正确选项是 B."
+847,-L---解三角形,解三角形\-L---解三角形.tex,,L,,,解三角形,解三角形，三角恒等变换，余弦定理,否,解答题,3,是,12,,2026-06-27 21:12:55,2026-06-27 23:32:51,"{2026}{L}{}{}{解三角形}
+已知 $\triangle ABC$ 的内角 $A, B, C$ 的对边分别为 $a, b, c$，且 $\sin(A+C)=8\sin^2\frac{B}{2}$.
+
+（1）求 $\cos B$;
+
+（2）若 $a+c=6$，$\triangle ABC$ 的面积为 2，求 $b$.",$\displaystyle\dfrac{15}{17}; 2$,"（1）在 $\triangle ABC$ 中，因为 $A+B+C=\pi$,所以 $\sin(A+C)=\sin(\pi-B)=\sin B$.
+
+原式化为 $\sin B=8\sin^2\frac{B}{2}$.
+
+利用二倍角公式得 $2\sin\frac{B}{2}\cos\frac{B}{2}=8\sin^2\frac{B}{2}$.
+
+因为 $B\in(0,\pi)$,所以 $\sin\frac{B}{2}\neq 0$,两边同除以 $2\sin\frac{B}{2}$ 得 $\cos\frac{B}{2}=4\sin\frac{B}{2}$.
+
+平方得 $\cos^2\frac{B}{2}=16\sin^2\frac{B}{2}$.
+
+结合 $\sin^2\frac{B}{2}+\cos^2\frac{B}{2}=1$,解得 $\sin^2\frac{B}{2}=\displaystyle\frac{1}{17}$.
+
+由降幂公式 $\cos B=1-2\sin^2\frac{B}{2}=1-\displaystyle\frac{2}{17}=\displaystyle\frac{15}{17}$.
+
+（2）因为 $\cos B=\displaystyle\frac{15}{17}$ 且 $B\in(0,\pi)$,所以 $\sin B=\sqrt{1-\cos^2 B}=\displaystyle\frac{8}{17}$.
+
+由面积公式 $S_{\triangle ABC}=\displaystyle\frac{1}{2}ac\sin B=2$,得 $ac=\displaystyle\frac{4}{\sin B}=\displaystyle\frac{17}{2}$.
+
+由余弦定理 $b^2=a^2+c^2-2ac\cos B=(a+c)^2-2ac(1+\cos B)$.
+
+代入 $a+c=6$,$ac=\displaystyle\frac{17}{2}$,$\cos B=\displaystyle\frac{15}{17}$ 得：
+
+$$
+b^2=6^2-2\times\displaystyle\frac{17}{2}\times\left(1+\displaystyle\frac{15}{17}\right)=36-32=4.
+$$
+
+所以 $b=\boxed{2}$."
+848,2024-G-北京高考-5-向量,向量\2024\2024-G-北京高考-5-向量.tex,2024,G,北京高考,5,向量,平面向量数量积，充分必要条件，向量的模,否,选择题,2,是,0,,2026-06-27 23:42:12,2026-06-27 23:56:24,"{2024}{G}{北京高考}{5}{向量}
+设 $\vec{a}$，$\vec{b}$ 是向量，则“$(\vec{a}+\vec{b})(\vec{a}-\vec{b})=0$”是“$\vec{a}=-\vec{b}$ 或 $\vec{a}=\vec{b}$”的 (\hspace{1cm})
+\begin{choices}
+\choice{{充分不必要条件}}
+\choice{{必要不充分条件}}
+\choice{{充要条件}}
+\choice{{既不充分也不必要条件}}
+\end{choices}",$B$,"因为$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=\vec{a}^2-\vec{b}^2=0$,可得$\vec{a}^2=\vec{b}^2$,即$|\vec{a}|=|\vec{b}|$,
+
+可知$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=0$等价于$|\vec{a}|=|\vec{b}|$,
+
+若$\vec{a}=\vec{b}$或$\vec{a}=-\vec{b}$,可得$|\vec{a}|=|\vec{b}|$,即$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=0$,可知必要性成立；
+
+若$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=0$,即$|\vec{a}|=|\vec{b}|$,无法得出$\vec{a}=\vec{b}$或$\vec{a}=-\vec{b}$,
+
+例如$\vec{a}=(1,0),\vec{b}=(0,1)$,满足$|\vec{a}|=|\vec{b}|$,但$\vec{a}\neq\vec{b}$且$\vec{a}\neq-\vec{b}$,可知充分性不成立；
+
+“$(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=0$”是“$\vec{a}=\vec{b}$且$\vec{a}\neq-\vec{b}$”的必要不充分条件.
+
+故选B."

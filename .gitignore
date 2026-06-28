@@ -1,0 +1,58 @@
+# API 密钥和环境变量 (绝对不能上传)
+.env
+
+# Agent Mail 授权过程中的本地临时日志
+.agently-auth/
+
+# TikZ 绘图的临时图片和 PDF 缓存 (会占用大量空间，不需要上传)
+.tikz_cache/
+*.pdf
+
+
+# Python 缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 操作系统生成的无用文件
+.DS_Store
+Thumbs.db
+log.csv
+
+# 自己加的东西
+更新信息.txt
+ocr_prompt.txt
+AutoTikz.md
+debug.log
+ocr的备份.txt
+
+# 外部大型参考项目 (避免索引崩溃与上传超时)
+SolaireEPDA-master/
+
+# LaTeX 编译输出
+*.synctex.gz
+*.log
+*.aux
+*.out
+*.toc
+
+# 历史备份文件（非正式代码）
+question_bank_app000.py
+old_app.py
+
+# 与项目无关的文档
+高中数学建模15课时课程设计.md
+
+# 虚拟环境
+.venv/
+
+# Python 编译缓存
+*.pyc
+
+MathCyclus_demo.html
+
+*-G-*.tex
+
+# 管理备份问题：本地自动备份，不上传到 GitHub
+.backups/
+
