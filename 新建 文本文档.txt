@@ -1,3 +1,3 @@
 .venv\Scripts\activate
 python utils/init_csv_index.py
-streamlit run question_bank_app.py
+python -m streamlit run question_bank_app.py
